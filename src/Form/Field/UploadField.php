@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Form\Field;
+namespace StartupWrench\Admin\Form\Field;
 
-use Encore\Admin\Form;
+use StartupWrench\Admin\Form;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\MessageBag;
@@ -67,16 +67,16 @@ trait UploadField
             'showRemove'           => false,
             'showUpload'           => false,
 //            'initialCaption'       => $this->initialCaption($this->value),
-            'deleteExtraData' => [
+            'deleteExtraData'      => [
                 $this->formatName($this->column) => static::FILE_DELETE_FLAG,
                 static::FILE_DELETE_FLAG         => '',
                 '_token'                         => csrf_token(),
-                '_method'                        => 'PUT',
-            ],
+                '_method'                        => 'PUT'
+            ]
         ];
 
         if ($this->form instanceof Form) {
-            $defaultOptions['deleteUrl'] = $this->form->resource().'/'.$this->form->model()->getKey();
+            $defaultOptions['deleteUrl'] = $this->form->resource() . '/' . $this->form->model()->getKey();
         }
 
         $this->options($defaultOptions);
@@ -95,7 +95,7 @@ trait UploadField
 
         $this->options([
             //'initialPreview'        => $this->preview(),
-            'initialPreviewConfig' => $this->initialPreviewConfig(),
+            'initialPreviewConfig' => $this->initialPreviewConfig()
         ]);
     }
 
@@ -137,7 +137,7 @@ trait UploadField
         if (!array_key_exists($disk, config('filesystems.disks'))) {
             $error = new MessageBag([
                 'title'   => 'Config error.',
-                'message' => "Disk [$disk] not configured, please add a disk config in `config/filesystems.php`.",
+                'message' => "Disk [$disk] not configured, please add a disk config in `config/filesystems.php`."
             ]);
 
             return session()->flash('error', $error);
@@ -300,7 +300,7 @@ trait UploadField
      */
     protected function generateUniqueName(UploadedFile $file)
     {
-        return md5(uniqid()).'.'.$file->getClientOriginalExtension();
+        return md5(uniqid()) . '.' . $file->getClientOriginalExtension();
     }
 
     /**

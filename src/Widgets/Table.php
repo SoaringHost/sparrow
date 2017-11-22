@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\Admin\Widgets;
+namespace StartupWrench\Admin\Widgets;
 
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Arr;
@@ -104,7 +104,7 @@ class Table extends Widget implements Renderable
             'headers'    => $this->headers,
             'rows'       => $this->rows,
             'style'      => $this->style,
-            'attributes' => $this->formatAttributes(),
+            'attributes' => $this->formatAttributes()
         ];
 
         return view($this->view, $vars)->render();

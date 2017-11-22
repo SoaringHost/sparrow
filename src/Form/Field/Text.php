@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Form\Field;
+namespace StartupWrench\Admin\Form\Field;
 
-use Encore\Admin\Form\Field;
+use StartupWrench\Admin\Form\Field;
 
 class Text extends Field
 {
@@ -18,16 +18,16 @@ class Text extends Field
         $this->initPlainInput();
 
         $this->prepend('<i class="fa fa-pencil"></i>')
-            ->defaultAttribute('type', 'text')
-            ->defaultAttribute('id', $this->id)
-            ->defaultAttribute('name', $this->elementName ?: $this->formatName($this->column))
-            ->defaultAttribute('value', old($this->column, $this->value()))
-            ->defaultAttribute('class', 'form-control '.$this->getElementClassString())
-            ->defaultAttribute('placeholder', $this->getPlaceholder());
+             ->defaultAttribute('type', 'text')
+             ->defaultAttribute('id', $this->id)
+             ->defaultAttribute('name', $this->elementName ?: $this->formatName($this->column))
+             ->defaultAttribute('value', old($this->column, $this->value()))
+             ->defaultAttribute('class', 'form-control ' . $this->getElementClassString())
+             ->defaultAttribute('placeholder', $this->getPlaceholder());
 
         return parent::render()->with([
             'prepend' => $this->prepend,
-            'append'  => $this->append,
+            'append'  => $this->append
         ]);
     }
 }

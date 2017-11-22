@@ -1,9 +1,9 @@
 <?php
 
-namespace Encore\Admin\Middleware;
+namespace StartupWrench\Admin\Middleware;
 
-use Encore\Admin\Auth\Database\OperationLog as OperationLogModel;
-use Encore\Admin\Facades\Admin;
+use StartupWrench\Admin\Auth\Database\OperationLog as OperationLogModel;
+use StartupWrench\Admin\Facades\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -25,7 +25,7 @@ class LogOperation
                 'path'    => $request->path(),
                 'method'  => $request->method(),
                 'ip'      => $request->getClientIp(),
-                'input'   => json_encode($request->input()),
+                'input'   => json_encode($request->input())
             ];
 
             OperationLogModel::create($log);
@@ -42,8 +42,8 @@ class LogOperation
     protected function shouldLogOperation(Request $request)
     {
         return config('admin.operation_log.enable')
-            && !$this->inExceptArray($request)
-            && Admin::user();
+        && !$this->inExceptArray($request)
+        && Admin::user();
     }
 
     /**
@@ -64,7 +64,7 @@ class LogOperation
 
             if (Str::contains($except, ':')) {
                 list($methods, $except) = explode(':', $except);
-                $methods = explode(',', $methods);
+                $methods                = explode(',', $methods);
             }
 
             $methods = array_map('strtoupper', $methods);

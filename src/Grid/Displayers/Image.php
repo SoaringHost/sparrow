@@ -1,12 +1,17 @@
 <?php
 
-namespace Encore\Admin\Grid\Displayers;
+namespace StartupWrench\Admin\Grid\Displayers;
 
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Support\Facades\Storage;
 
 class Image extends AbstractDisplayer
 {
+    /**
+     * @param $server
+     * @param $width
+     * @param $height
+     */
     public function display($server = '', $width = 200, $height = 200)
     {
         if ($this->value instanceof Arrayable) {
@@ -17,7 +22,7 @@ class Image extends AbstractDisplayer
             if (url()->isValidUrl($path)) {
                 $src = $path;
             } elseif ($server) {
-                $src = $server.$path;
+                $src = $server . $path;
             } else {
                 $src = Storage::disk(config('admin.upload.disk'))->url($path);
             }

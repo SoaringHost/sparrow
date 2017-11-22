@@ -1,18 +1,30 @@
 <?php
 
-namespace Encore\Admin\Grid\Tools;
+namespace StartupWrench\Admin\Grid\Tools;
 
 abstract class BatchAction
 {
+    /**
+     * @var mixed
+     */
     protected $id;
 
+    /**
+     * @var mixed
+     */
     protected $resource;
 
+    /**
+     * @param $id
+     */
     public function setId($id)
     {
         $this->id = $id;
     }
 
+    /**
+     * @param $resource
+     */
     public function setResource($resource)
     {
         $this->resource = $resource;
@@ -25,7 +37,7 @@ abstract class BatchAction
 
     protected function getElementClass()
     {
-        return '.grid-batch-'.$this->id;
+        return '.grid-batch-' . $this->id;
     }
 
     public function script()

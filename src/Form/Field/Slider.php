@@ -1,24 +1,33 @@
 <?php
 
-namespace Encore\Admin\Form\Field;
+namespace StartupWrench\Admin\Form\Field;
 
-use Encore\Admin\Form\Field;
+use StartupWrench\Admin\Form\Field;
 
 class Slider extends Field
 {
+    /**
+     * @var array
+     */
     protected static $css = [
         '/vendor/laravel-admin/AdminLTE/plugins/ionslider/ion.rangeSlider.css',
-        '/vendor/laravel-admin/AdminLTE/plugins/ionslider/ion.rangeSlider.skinNice.css',
+        '/vendor/laravel-admin/AdminLTE/plugins/ionslider/ion.rangeSlider.skinNice.css'
     ];
 
+    /**
+     * @var array
+     */
     protected static $js = [
-        '/vendor/laravel-admin/AdminLTE/plugins/ionslider/ion.rangeSlider.min.js',
+        '/vendor/laravel-admin/AdminLTE/plugins/ionslider/ion.rangeSlider.min.js'
     ];
 
+    /**
+     * @var array
+     */
     protected $options = [
         'type'     => 'single',
         'prettify' => false,
-        'hasGrid'  => true,
+        'hasGrid'  => true
     ];
 
     public function render()

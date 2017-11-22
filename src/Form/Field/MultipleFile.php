@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Form\Field;
+namespace StartupWrench\Admin\Form\Field;
 
-use Encore\Admin\Form\Field;
+use StartupWrench\Admin\Form\Field;
 use Illuminate\Support\Facades\Validator;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
@@ -16,7 +16,7 @@ class MultipleFile extends Field
      * @var array
      */
     protected static $css = [
-        '/vendor/laravel-admin/bootstrap-fileinput/css/fileinput.min.css?v=4.3.7',
+        '/vendor/laravel-admin/bootstrap-fileinput/css/fileinput.min.css?v=4.3.7'
     ];
 
     /**
@@ -26,7 +26,7 @@ class MultipleFile extends Field
      */
     protected static $js = [
         '/vendor/laravel-admin/bootstrap-fileinput/js/plugins/canvas-to-blob.min.js?v=4.3.7',
-        '/vendor/laravel-admin/bootstrap-fileinput/js/fileinput.min.js?v=4.3.7',
+        '/vendor/laravel-admin/bootstrap-fileinput/js/fileinput.min.js?v=4.3.7'
     ];
 
     /**
@@ -94,8 +94,8 @@ class MultipleFile extends Field
         $rules = $input = [];
 
         foreach ($value as $key => $file) {
-            $rules[$this->column.$key] = $this->getRules();
-            $input[$this->column.$key] = $file;
+            $rules[$this->column . $key] = $this->getRules();
+            $input[$this->column . $key] = $file;
         }
 
         return [$rules, $input];
@@ -189,7 +189,7 @@ class MultipleFile extends Field
         foreach ($files as $index => $file) {
             $config[] = [
                 'caption' => basename($file),
-                'key'     => $index,
+                'key'     => $index
             ];
         }
 

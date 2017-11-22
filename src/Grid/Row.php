@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\Admin\Grid;
+namespace StartupWrench\Admin\Grid;
 
 class Row
 {
@@ -178,7 +178,7 @@ class Row
     protected function dump($var)
     {
         if (!is_scalar($var)) {
-            return '<pre>'.var_export($var, true).'</pre>';
+            return '<pre>' . var_export($var, true) . '</pre>';
         }
 
         return $var;

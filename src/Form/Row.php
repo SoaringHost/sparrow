@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Form;
+namespace StartupWrench\Admin\Form;
 
-use Encore\Admin\Form;
+use StartupWrench\Admin\Form;
 use Illuminate\Contracts\Support\Renderable;
 
 class Row implements Renderable
@@ -90,7 +90,7 @@ class Row implements Renderable
 
         $this->fields[] = [
             'width'   => $this->defaultFieldWidth,
-            'element' => $field,
+            'element' => $field
         ];
 
         return $field;

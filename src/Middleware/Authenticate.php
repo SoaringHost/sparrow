@@ -1,9 +1,9 @@
 <?php
 
-namespace Encore\Admin\Middleware;
+namespace StartupWrench\Admin\Middleware;
 
 use Closure;
-use Encore\Admin\Admin;
+use StartupWrench\Admin\Admin;
 use Illuminate\Support\Facades\Auth;
 
 class Authenticate
@@ -36,7 +36,7 @@ class Authenticate
     {
         $excepts = [
             admin_base_path('auth/login'),
-            admin_base_path('auth/logout'),
+            admin_base_path('auth/logout')
         ];
 
         foreach ($excepts as $except) {

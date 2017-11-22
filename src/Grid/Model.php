@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Grid;
+namespace StartupWrench\Admin\Grid;
 
-use Encore\Admin\Middleware\Pjax;
+use StartupWrench\Admin\Middleware\Pjax;
 use Illuminate\Database\Eloquent\Model as EloquentModel;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
@@ -43,6 +43,9 @@ class Model
     /*
      * 20 items per page as default.
      *
+     * @var int
+     */
+    /**
      * @var int
      */
     protected $perPage = 20;
@@ -302,7 +305,7 @@ class Model
     {
         if ($paginator->lastPage() && $paginator->currentPage() > $paginator->lastPage()) {
             $lastPageUrl = Request::fullUrlWithQuery([
-                $paginator->getPageName() => $paginator->lastPage(),
+                $paginator->getPageName() => $paginator->lastPage()
             ]);
 
             Pjax::respond(redirect($lastPageUrl));
@@ -325,12 +328,12 @@ class Model
         if (!$this->usePaginate) {
             $query = [
                 'method'    => 'get',
-                'arguments' => [],
+                'arguments' => []
             ];
         } else {
             $query = [
                 'method'    => 'paginate',
-                'arguments' => $this->resolvePerPage($paginate),
+                'arguments' => $this->resolvePerPage($paginate)
             ];
         }
 
@@ -400,7 +403,7 @@ class Model
 
             $this->queries->push([
                 'method'    => 'orderBy',
-                'arguments' => [$this->sort['column'], $this->sort['type']],
+                'arguments' => [$this->sort['column'], $this->sort['type']]
             ]);
         }
     }
@@ -423,7 +426,7 @@ class Model
 
             $this->queries->push([
                 'method'    => 'join',
-                'arguments' => $this->joinParameters($relation),
+                'arguments' => $this->joinParameters($relation)
             ]);
 
             $this->resetOrderBy();
@@ -431,9 +434,9 @@ class Model
             $this->queries->push([
                 'method'    => 'orderBy',
                 'arguments' => [
-                    $relation->getRelated()->getTable().'.'.$relationColumn,
-                    $this->sort['type'],
-                ],
+                    $relation->getRelated()->getTable() . '.' . $relationColumn,
+                    $this->sort['type']
+                ]
             ]);
         }
     }
@@ -470,7 +473,7 @@ class Model
                 $relatedTable,
                 $relation->getForeignKey(),
                 '=',
-                $relatedTable.'.'.$relation->getRelated()->getKeyName(),
+                $relatedTable . '.' . $relation->getRelated()->getKeyName()
             ];
         }
 
@@ -479,7 +482,7 @@ class Model
                 $relatedTable,
                 $relation->getQualifiedParentKeyName(),
                 '=',
-                $relation->getQualifiedForeignKeyName(),
+                $relation->getQualifiedForeignKeyName()
             ];
         }
 
@@ -496,7 +499,7 @@ class Model
     {
         $this->queries->push([
             'method'    => $method,
-            'arguments' => $arguments,
+            'arguments' => $arguments
         ]);
 
         return $this;

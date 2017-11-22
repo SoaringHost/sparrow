@@ -1,15 +1,18 @@
 <?php
 
-namespace Encore\Admin\Grid\Displayers;
+namespace StartupWrench\Admin\Grid\Displayers;
 
-use Encore\Admin\Admin;
+use StartupWrench\Admin\Admin;
 
 class Checkbox extends AbstractDisplayer
 {
+    /**
+     * @param array $options
+     */
     public function display($options = [])
     {
         $radios = '';
-        $name = $this->column->getName();
+        $name   = $this->column->getName();
 
         if (is_string($this->value)) {
             $this->value = explode(',', $this->value);

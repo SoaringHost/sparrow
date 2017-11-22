@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Form\Field;
+namespace StartupWrench\Admin\Form\Field;
 
-use Encore\Admin\Form\Field;
+use StartupWrench\Admin\Form\Field;
 use Illuminate\Support\Facades\Validator;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
@@ -16,7 +16,7 @@ class File extends Field
      * @var array
      */
     protected static $css = [
-        '/vendor/laravel-admin/bootstrap-fileinput/css/fileinput.min.css?v=4.3.7',
+        '/vendor/laravel-admin/bootstrap-fileinput/css/fileinput.min.css?v=4.3.7'
     ];
 
     /**
@@ -26,7 +26,7 @@ class File extends Field
      */
     protected static $js = [
         '/vendor/laravel-admin/bootstrap-fileinput/js/plugins/canvas-to-blob.min.js?v=4.3.7',
-        '/vendor/laravel-admin/bootstrap-fileinput/js/fileinput.min.js?v=4.3.7',
+        '/vendor/laravel-admin/bootstrap-fileinput/js/fileinput.min.js?v=4.3.7'
     ];
 
     /**
@@ -86,7 +86,7 @@ class File extends Field
             return false;
         }
 
-        $rules[$this->column] = $fieldRules;
+        $rules[$this->column]      = $fieldRules;
         $attributes[$this->column] = $this->label;
 
         return Validator::make($input, $rules, $this->validationMessages, $attributes);
@@ -156,7 +156,7 @@ class File extends Field
     protected function initialPreviewConfig()
     {
         return [
-            ['caption' => basename($this->value), 'key' => 0],
+            ['caption' => basename($this->value), 'key' => 0]
         ];
     }
 

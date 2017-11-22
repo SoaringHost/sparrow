@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\Admin\Widgets;
+namespace StartupWrench\Admin\Widgets;
 
 use Illuminate\Contracts\Support\Renderable;
 
@@ -21,7 +21,7 @@ class Collapse extends Widget implements Renderable
      */
     public function __construct()
     {
-        $this->id('accordion-'.uniqid());
+        $this->id('accordion-' . uniqid());
         $this->class('box-group');
         $this->style('margin-bottom: 20px');
     }
@@ -38,7 +38,7 @@ class Collapse extends Widget implements Renderable
     {
         $this->items[] = [
             'title'   => $title,
-            'content' => $content,
+            'content' => $content
         ];
 
         return $this;
@@ -49,7 +49,7 @@ class Collapse extends Widget implements Renderable
         return [
             'id'         => $this->id,
             'items'      => $this->items,
-            'attributes' => $this->formatAttributes(),
+            'attributes' => $this->formatAttributes()
         ];
     }
 

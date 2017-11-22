@@ -1,13 +1,18 @@
 <?php
 
-namespace Encore\Admin\Grid\Displayers;
+namespace StartupWrench\Admin\Grid\Displayers;
 
 class ProgressBar extends AbstractDisplayer
 {
+    /**
+     * @param $style
+     * @param $size
+     * @param $max
+     */
     public function display($style = 'primary', $size = 'sm', $max = 100)
     {
         $style = collect((array) $style)->map(function ($style) {
-            return 'progress-bar-'.$style;
+            return 'progress-bar-' . $style;
         })->implode(' ');
 
         return <<<EOT

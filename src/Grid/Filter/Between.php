@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Grid\Filter;
+namespace StartupWrench\Admin\Grid\Filter;
 
-use Encore\Admin\Admin;
+use StartupWrench\Admin\Admin;
 
 class Between extends AbstractFilter
 {
@@ -108,7 +108,7 @@ class Between extends AbstractFilter
         $options['locale'] = array_get($options, 'locale', config('app.locale'));
 
         $startOptions = json_encode($options);
-        $endOptions = json_encode($options + ['useCurrent' => false]);
+        $endOptions   = json_encode($options + ['useCurrent' => false]);
 
         $script = <<<EOT
             $('#{$this->id['start']}').datetimepicker($startOptions);

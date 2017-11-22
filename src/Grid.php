@@ -1,17 +1,17 @@
 <?php
 
-namespace Encore\Admin;
+namespace StartupWrench\Admin;
 
 use Closure;
-use Encore\Admin\Exception\Handler;
-use Encore\Admin\Grid\Column;
-use Encore\Admin\Grid\Displayers\Actions;
-use Encore\Admin\Grid\Displayers\RowSelector;
-use Encore\Admin\Grid\Exporter;
-use Encore\Admin\Grid\Filter;
-use Encore\Admin\Grid\Model;
-use Encore\Admin\Grid\Row;
-use Encore\Admin\Grid\Tools;
+use StartupWrench\Admin\Exception\Handler;
+use StartupWrench\Admin\Grid\Column;
+use StartupWrench\Admin\Grid\Displayers\Actions;
+use StartupWrench\Admin\Grid\Displayers\RowSelector;
+use StartupWrench\Admin\Grid\Exporter;
+use StartupWrench\Admin\Grid\Filter;
+use StartupWrench\Admin\Grid\Model;
+use StartupWrench\Admin\Grid\Row;
+use StartupWrench\Admin\Grid\Tools;
 use Illuminate\Database\Eloquent\Model as Eloquent;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -29,7 +29,7 @@ class Grid
     /**
      * The grid data model instance.
      *
-     * @var \Encore\Admin\Grid\Model
+     * @var \StartupWrench\Admin\Grid\Model
      */
     protected $model;
 
@@ -92,7 +92,7 @@ class Grid
     /**
      * The grid Filter.
      *
-     * @var \Encore\Admin\Grid\Filter
+     * @var \StartupWrench\Admin\Grid\Filter
      */
     protected $filter;
 
@@ -163,7 +163,7 @@ class Grid
         'useExporter'    => true,
         'useActions'     => true,
         'useRowSelector' => true,
-        'allowCreate'    => true,
+        'allowCreate'    => true
     ];
 
     /**
@@ -180,9 +180,9 @@ class Grid
     public function __construct(Eloquent $model, Closure $builder)
     {
         $this->keyName = $model->getKeyName();
-        $this->model = new Model($model);
+        $this->model   = new Model($model);
         $this->columns = new Collection();
-        $this->rows = new Collection();
+        $this->rows    = new Collection();
         $this->builder = $builder;
 
         $this->setupTools();
@@ -272,7 +272,7 @@ class Grid
 
             $label = empty($label) ? ucfirst($relationColumn) : $label;
 
-            $name = snake_case($relationName).'.'.$relationColumn;
+            $name = snake_case($relationName) . '.' . $relationColumn;
         }
 
         $column = $this->addColumn($name, $label);
@@ -434,9 +434,9 @@ class Grid
             return;
         }
 
-        $grid = $this;
+        $grid     = $this;
         $callback = $this->actionsCallback;
-        $column = $this->addColumn('__actions__', trans('admin.action'));
+        $column   = $this->addColumn('__actions__', trans('admin.action'));
 
         $column->display(function ($value) use ($grid, $column, $callback) {
             $actions = new Actions($value, $grid, $column, $this);
@@ -654,7 +654,7 @@ class Grid
     {
         $input = array_merge(Input::all(), Exporter::formatExportQuery($scope, $args));
 
-        return $this->resource().'?'.http_build_query($input);
+        return $this->resource() . '?' . http_build_query($input);
     }
 
     /**
@@ -895,19 +895,19 @@ class Grid
     public static function registerColumnDisplayer()
     {
         $map = [
-            'editable'    => \Encore\Admin\Grid\Displayers\Editable::class,
-            'switch'      => \Encore\Admin\Grid\Displayers\SwitchDisplay::class,
-            'switchGroup' => \Encore\Admin\Grid\Displayers\SwitchGroup::class,
-            'select'      => \Encore\Admin\Grid\Displayers\Select::class,
-            'image'       => \Encore\Admin\Grid\Displayers\Image::class,
-            'label'       => \Encore\Admin\Grid\Displayers\Label::class,
-            'button'      => \Encore\Admin\Grid\Displayers\Button::class,
-            'link'        => \Encore\Admin\Grid\Displayers\Link::class,
-            'badge'       => \Encore\Admin\Grid\Displayers\Badge::class,
-            'progressBar' => \Encore\Admin\Grid\Displayers\ProgressBar::class,
-            'radio'       => \Encore\Admin\Grid\Displayers\Radio::class,
-            'checkbox'    => \Encore\Admin\Grid\Displayers\Checkbox::class,
-            'orderable'   => \Encore\Admin\Grid\Displayers\Orderable::class,
+            'editable'    => \StartupWrench\Admin\Grid\Displayers\Editable::class,
+            'switch'      => \StartupWrench\Admin\Grid\Displayers\SwitchDisplay::class,
+            'switchGroup' => \StartupWrench\Admin\Grid\Displayers\SwitchGroup::class,
+            'select'      => \StartupWrench\Admin\Grid\Displayers\Select::class,
+            'image'       => \StartupWrench\Admin\Grid\Displayers\Image::class,
+            'label'       => \StartupWrench\Admin\Grid\Displayers\Label::class,
+            'button'      => \StartupWrench\Admin\Grid\Displayers\Button::class,
+            'link'        => \StartupWrench\Admin\Grid\Displayers\Link::class,
+            'badge'       => \StartupWrench\Admin\Grid\Displayers\Badge::class,
+            'progressBar' => \StartupWrench\Admin\Grid\Displayers\ProgressBar::class,
+            'radio'       => \StartupWrench\Admin\Grid\Displayers\Radio::class,
+            'checkbox'    => \StartupWrench\Admin\Grid\Displayers\Checkbox::class,
+            'orderable'   => \StartupWrench\Admin\Grid\Displayers\Orderable::class
         ];
 
         foreach ($map as $abstract => $class) {

@@ -1,9 +1,9 @@
 <?php
 
-namespace Encore\Admin;
+namespace StartupWrench\Admin;
 
 use Closure;
-use Encore\Admin\Tree\Tools;
+use StartupWrench\Admin\Tree\Tools;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Database\Eloquent\Model;
 
@@ -36,7 +36,7 @@ class Tree implements Renderable
      */
     protected $view = [
         'tree'   => 'admin::tree',
-        'branch' => 'admin::tree.branch',
+        'branch' => 'admin::tree.branch'
     ];
 
     /**
@@ -114,7 +114,7 @@ class Tree implements Renderable
     {
         if (is_null($this->branchCallback)) {
             $this->branchCallback = function ($branch) {
-                $key = $branch[$this->model->getKeyName()];
+                $key   = $branch[$this->model->getKeyName()];
                 $title = $branch[$this->model->getTitleColumn()];
 
                 return "$key - $title";
@@ -219,12 +219,12 @@ class Tree implements Renderable
      */
     protected function script()
     {
-        $deleteConfirm = trans('admin.delete_confirm');
-        $saveSucceeded = trans('admin.save_succeeded');
+        $deleteConfirm    = trans('admin.delete_confirm');
+        $saveSucceeded    = trans('admin.save_succeeded');
         $refreshSucceeded = trans('admin.refresh_succeeded');
-        $deleteSucceeded = trans('admin.delete_succeeded');
-        $confirm = trans('admin.confirm');
-        $cancel = trans('admin.cancel');
+        $deleteSucceeded  = trans('admin.delete_succeeded');
+        $confirm          = trans('admin.confirm');
+        $cancel           = trans('admin.cancel');
 
         $nestableOptions = json_encode($this->nestableOptions);
 
@@ -332,7 +332,7 @@ SCRIPT;
             'items'      => $this->getItems(),
             'useCreate'  => $this->useCreate,
             'useSave'    => $this->useSave,
-            'useRefresh' => $this->useRefresh,
+            'useRefresh' => $this->useRefresh
         ];
     }
 
@@ -361,7 +361,7 @@ SCRIPT;
             'path'           => $this->path,
             'keyName'        => $this->model->getKeyName(),
             'branchView'     => $this->view['branch'],
-            'branchCallback' => $this->branchCallback,
+            'branchCallback' => $this->branchCallback
         ]);
 
         return view($this->view['tree'], $this->variables())->render();

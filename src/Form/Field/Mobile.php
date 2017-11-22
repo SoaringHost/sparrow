@@ -1,11 +1,14 @@
 <?php
 
-namespace Encore\Admin\Form\Field;
+namespace StartupWrench\Admin\Form\Field;
 
 class Mobile extends Text
 {
+    /**
+     * @var array
+     */
     protected static $js = [
-        '/vendor/laravel-admin/AdminLTE/plugins/input-mask/jquery.inputmask.bundle.min.js',
+        '/vendor/laravel-admin/AdminLTE/plugins/input-mask/jquery.inputmask.bundle.min.js'
     ];
 
     /**
@@ -14,7 +17,7 @@ class Mobile extends Text
      * @var array
      */
     protected $options = [
-        'mask' => '99999999999',
+        'mask' => '99999999999'
     ];
 
     public function render()
@@ -27,7 +30,7 @@ $('{$this->getElementClassSelector()}').inputmask($options);
 EOT;
 
         $this->prepend('<i class="fa fa-phone"></i>')
-            ->defaultAttribute('style', 'width: 150px');
+             ->defaultAttribute('style', 'width: 150px');
 
         return parent::render();
     }

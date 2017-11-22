@@ -1,17 +1,23 @@
 <?php
 
-namespace Encore\Admin\Grid\Displayers;
+namespace StartupWrench\Admin\Grid\Displayers;
 
-use Encore\Admin\Facades\Admin;
+use StartupWrench\Admin\Facades\Admin;
 use Illuminate\Support\Arr;
 
 class SwitchGroup extends AbstractDisplayer
 {
+    /**
+     * @var array
+     */
     protected $states = [
         'on'  => ['value' => 1, 'text' => 'ON', 'color' => 'primary'],
-        'off' => ['value' => 0, 'text' => 'OFF', 'color' => 'default'],
+        'off' => ['value' => 0, 'text' => 'OFF', 'color' => 'default']
     ];
 
+    /**
+     * @param $states
+     */
     protected function updateStates($states)
     {
         foreach (array_dot($states) as $key => $state) {
@@ -19,6 +25,10 @@ class SwitchGroup extends AbstractDisplayer
         }
     }
 
+    /**
+     * @param array $columns
+     * @param array $states
+     */
     public function display($columns = [], $states = [])
     {
         $this->updateStates($states);
@@ -35,9 +45,13 @@ class SwitchGroup extends AbstractDisplayer
             $html[] = $this->buildSwitch($column, $label);
         }
 
-        return '<table>'.implode('', $html).'</table>';
+        return '<table>' . implode('', $html) . '</table>';
     }
 
+    /**
+     * @param $name
+     * @param $label
+     */
     protected function buildSwitch($name, $label = '')
     {
         $class = "grid-switch-{$name}";

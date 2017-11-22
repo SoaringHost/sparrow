@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\Admin\Form\Field;
+namespace StartupWrench\Admin\Form\Field;
 
 /**
  * Class ListBox.
@@ -9,16 +9,29 @@ namespace Encore\Admin\Form\Field;
  */
 class Listbox extends MultipleSelect
 {
+    /**
+     * @var array
+     */
     protected $settings = [];
 
+    /**
+     * @var array
+     */
     protected static $css = [
-        '/vendor/laravel-admin/bootstrap-duallistbox/dist/bootstrap-duallistbox.min.css',
+        '/vendor/laravel-admin/bootstrap-duallistbox/dist/bootstrap-duallistbox.min.css'
     ];
 
+    /**
+     * @var array
+     */
     protected static $js = [
-        '/vendor/laravel-admin/bootstrap-duallistbox/dist/jquery.bootstrap-duallistbox.min.js',
+        '/vendor/laravel-admin/bootstrap-duallistbox/dist/jquery.bootstrap-duallistbox.min.js'
     ];
 
+    /**
+     * @param array $settings
+     * @return mixed
+     */
     public function settings(array $settings)
     {
         $this->settings = $settings;
@@ -33,7 +46,7 @@ class Listbox extends MultipleSelect
             'infoTextEmpty'     => trans('admin.listbox.text_empty'),
             'infoTextFiltered'  => trans('admin.listbox.filtered'),
             'filterTextClear'   => trans('admin.listbox.filter_clear'),
-            'filterPlaceHolder' => trans('admin.listbox.filter_placeholder'),
+            'filterPlaceHolder' => trans('admin.listbox.filter_placeholder')
         ]);
 
         $settings = json_encode($settings);

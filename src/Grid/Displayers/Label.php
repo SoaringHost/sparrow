@@ -1,11 +1,14 @@
 <?php
 
-namespace Encore\Admin\Grid\Displayers;
+namespace StartupWrench\Admin\Grid\Displayers;
 
 use Illuminate\Contracts\Support\Arrayable;
 
 class Label extends AbstractDisplayer
 {
+    /**
+     * @param $style
+     */
     public function display($style = 'success')
     {
         if ($this->value instanceof Arrayable) {

@@ -1,9 +1,9 @@
 <?php
 
-namespace Encore\Admin\Grid\Tools;
+namespace StartupWrench\Admin\Grid\Tools;
 
-use Encore\Admin\Admin;
-use Encore\Admin\Grid;
+use StartupWrench\Admin\Admin;
+use StartupWrench\Admin\Grid;
 
 class ExportButton extends AbstractTool
 {
@@ -26,12 +26,12 @@ class ExportButton extends AbstractTool
 
 $('.export-selected').click(function (e) {
     e.preventDefault();
-    
+
     var rows = selectedRows().join(',');
     if (!rows) {
         return false;
     }
-    
+
     var href = $(this).attr('href').replace('__rows__', rows);
     location.href = href;
 });
@@ -54,9 +54,9 @@ SCRIPT;
 
         $this->setUpScripts();
 
-        $export = trans('admin.export');
-        $all = trans('admin.all');
-        $currentPage = trans('admin.current_page');
+        $export       = trans('admin.export');
+        $all          = trans('admin.all');
+        $currentPage  = trans('admin.current_page');
         $selectedRows = trans('admin.selected_rows');
 
         $page = request('page', 1);
@@ -71,8 +71,8 @@ SCRIPT;
     </button>
     <ul class="dropdown-menu" role="menu">
         <li><a href="{$this->grid->exportUrl('all')}" target="_blank">{$all}</a></li>
-        <li><a href="{$this->grid->exportUrl('page', $page)}" target="_blank">{$currentPage}</a></li>
-        <li><a href="{$this->grid->exportUrl('selected', '__rows__')}" target="_blank" class='export-selected'>{$selectedRows}</a></li>
+        <li><a href="{$this->grid->exportUrl('page',$page)}" target="_blank">{$currentPage}</a></li>
+        <li><a href="{$this->grid->exportUrl('selected','__rows__')}" target="_blank" class='export-selected'>{$selectedRows}</a></li>
     </ul>
 </div>
 &nbsp;&nbsp;

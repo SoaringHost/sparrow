@@ -1,13 +1,13 @@
 <?php
 
-namespace Encore\Admin\Grid\Exporters;
+namespace StartupWrench\Admin\Grid\Exporters;
 
-use Encore\Admin\Grid;
+use StartupWrench\Admin\Grid;
 
 abstract class AbstractExporter implements ExporterInterface
 {
     /**
-     * @var \Encore\Admin\Grid
+     * @var \StartupWrench\Admin\Grid
      */
     protected $grid;
 

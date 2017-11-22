@@ -1,15 +1,15 @@
 <?php
 
-namespace Encore\Admin\Grid\Filter;
+namespace StartupWrench\Admin\Grid\Filter;
 
-use Encore\Admin\Grid\Filter;
-use Encore\Admin\Grid\Filter\Presenter\Checkbox;
-use Encore\Admin\Grid\Filter\Presenter\DateTime;
-use Encore\Admin\Grid\Filter\Presenter\MultipleSelect;
-use Encore\Admin\Grid\Filter\Presenter\Presenter;
-use Encore\Admin\Grid\Filter\Presenter\Radio;
-use Encore\Admin\Grid\Filter\Presenter\Select;
-use Encore\Admin\Grid\Filter\Presenter\Text;
+use StartupWrench\Admin\Grid\Filter;
+use StartupWrench\Admin\Grid\Filter\Presenter\Checkbox;
+use StartupWrench\Admin\Grid\Filter\Presenter\DateTime;
+use StartupWrench\Admin\Grid\Filter\Presenter\MultipleSelect;
+use StartupWrench\Admin\Grid\Filter\Presenter\Presenter;
+use StartupWrench\Admin\Grid\Filter\Presenter\Radio;
+use StartupWrench\Admin\Grid\Filter\Presenter\Select;
+use StartupWrench\Admin\Grid\Filter\Presenter\Text;
 
 /**
  * Class AbstractFilter.
@@ -90,8 +90,8 @@ abstract class AbstractFilter
     public function __construct($column, $label = '')
     {
         $this->column = $column;
-        $this->label = $this->formatLabel($label);
-        $this->id = $this->formatId($column);
+        $this->label  = $this->formatLabel($label);
+        $this->id     = $this->formatId($column);
 
         $this->setupDefaultPresenter();
     }
@@ -362,8 +362,7 @@ abstract class AbstractFilter
      *
      * @return $this
      */
-    public function default($default = null)
-    {
+    function default($default = null) {
         if ($default) {
             $this->defaultValue = $default;
         }
@@ -445,7 +444,7 @@ abstract class AbstractFilter
             'name'      => $this->formatName($this->column),
             'label'     => $this->label,
             'value'     => $this->value ?: $this->defaultValue,
-            'presenter' => $this->presenter(),
+            'presenter' => $this->presenter()
         ], $this->presenter()->variables());
     }
 
@@ -483,6 +482,6 @@ abstract class AbstractFilter
             return $this->presenter()->{$method}(...$params);
         }
 
-        throw new \Exception('Method "'.$method.'" not exists.');
+        throw new \Exception('Method "' . $method . '" not exists.');
     }
 }

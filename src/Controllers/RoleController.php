@@ -1,13 +1,13 @@
 <?php
 
-namespace Encore\Admin\Controllers;
+namespace StartupWrench\Admin\Controllers;
 
-use Encore\Admin\Auth\Database\Permission;
-use Encore\Admin\Auth\Database\Role;
-use Encore\Admin\Facades\Admin;
-use Encore\Admin\Form;
-use Encore\Admin\Grid;
-use Encore\Admin\Layout\Content;
+use StartupWrench\Admin\Auth\Database\Permission;
+use StartupWrench\Admin\Auth\Database\Role;
+use StartupWrench\Admin\Facades\Admin;
+use StartupWrench\Admin\Form;
+use StartupWrench\Admin\Grid;
+use StartupWrench\Admin\Layout\Content;
 use Illuminate\Routing\Controller;
 
 class RoleController extends Controller

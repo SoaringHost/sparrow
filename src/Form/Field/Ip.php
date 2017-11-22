@@ -1,13 +1,19 @@
 <?php
 
-namespace Encore\Admin\Form\Field;
+namespace StartupWrench\Admin\Form\Field;
 
 class Ip extends Text
 {
+    /**
+     * @var string
+     */
     protected $rules = 'ip';
 
+    /**
+     * @var array
+     */
     protected static $js = [
-        '/vendor/laravel-admin/AdminLTE/plugins/input-mask/jquery.inputmask.bundle.min.js',
+        '/vendor/laravel-admin/AdminLTE/plugins/input-mask/jquery.inputmask.bundle.min.js'
     ];
 
     /**
@@ -16,7 +22,7 @@ class Ip extends Text
      * @var array
      */
     protected $options = [
-        'alias' => 'ip',
+        'alias' => 'ip'
     ];
 
     public function render()
@@ -29,7 +35,7 @@ $('{$this->getElementClassSelector()}').inputmask($options);
 EOT;
 
         $this->prepend('<i class="fa fa-laptop"></i>')
-            ->defaultAttribute('style', 'width: 130px');
+             ->defaultAttribute('style', 'width: 130px');
 
         return parent::render();
     }

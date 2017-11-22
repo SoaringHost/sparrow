@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Grid\Displayers;
+namespace StartupWrench\Admin\Grid\Displayers;
 
-use Encore\Admin\Admin;
+use StartupWrench\Admin\Admin;
 
 class RowSelector extends AbstractDisplayer
 {

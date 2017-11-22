@@ -1,13 +1,16 @@
 <?php
 
-namespace Encore\Admin\Form\Field;
+namespace StartupWrench\Admin\Form\Field;
 
-use Encore\Admin\Form\Field;
+use StartupWrench\Admin\Form\Field;
 
 class Editor extends Field
 {
+    /**
+     * @var array
+     */
     protected static $js = [
-        '//cdn.ckeditor.com/4.5.10/standard/ckeditor.js',
+        '//cdn.ckeditor.com/4.5.10/standard/ckeditor.js'
     ];
 
     public function render()

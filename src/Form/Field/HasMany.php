@@ -1,11 +1,11 @@
 <?php
 
-namespace Encore\Admin\Form\Field;
+namespace StartupWrench\Admin\Form\Field;
 
-use Encore\Admin\Admin;
-use Encore\Admin\Form;
-use Encore\Admin\Form\Field;
-use Encore\Admin\Form\NestedForm;
+use StartupWrench\Admin\Admin;
+use StartupWrench\Admin\Form;
+use StartupWrench\Admin\Form\Field;
+use StartupWrench\Admin\Form\NestedForm;
 use Illuminate\Database\Eloquent\Relations\HasMany as Relation;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Support\Facades\Validator;
@@ -53,7 +53,7 @@ class HasMany extends Field
      */
     protected $views = [
         'default' => 'admin::form.hasmany',
-        'tab'     => 'admin::form.hasmanytab',
+        'tab'     => 'admin::form.hasmanytab'
     ];
 
     /**
@@ -69,7 +69,7 @@ class HasMany extends Field
         $this->column = $relationName;
 
         if (count($arguments) == 1) {
-            $this->label = $this->formatLabel();
+            $this->label   = $this->formatLabel();
             $this->builder = $arguments[0];
         }
 
@@ -107,7 +107,7 @@ class HasMany extends Field
 
             if (is_array($column)) {
                 foreach ($column as $key => $name) {
-                    $rules[$name.$key] = $fieldRules;
+                    $rules[$name . $key] = $fieldRules;
                 }
 
                 $this->resetInputKey($input, $column);
@@ -153,7 +153,7 @@ class HasMany extends Field
 
         if (is_array($column)) {
             foreach ($column as $index => $col) {
-                $new[$col.$index] = $col;
+                $new[$col . $index] = $col;
             }
         }
 
@@ -165,7 +165,7 @@ class HasMany extends Field
             } else {
                 foreach ($new as $k => $val) {
                     if (Str::endsWith($key, ".$k")) {
-                        $attributes[$key] = $label."[$val]";
+                        $attributes[$key] = $label . "[$val]";
                     }
                 }
             }
@@ -205,7 +205,6 @@ class HasMany extends Field
          * in the HasMany relation, has many data/field set, $set is field set in the below
          */
         foreach ($input[$this->column] as $index => $set) {
-
             /*
              * foreach the field set to find the corresponding $column
              */
@@ -224,7 +223,7 @@ class HasMany extends Field
                  *
                  * I don't know why a form need range input? Only can imagine is for range search....
                  */
-                $newKey = $name.$column[$name];
+                $newKey = $name . $column[$name];
 
                 /*
                  * set new key
@@ -353,14 +352,14 @@ class HasMany extends Field
                 }
 
                 $forms[$key] = $this->buildNestedForm($this->column, $this->builder, $key)
-                    ->fill($data);
+                                    ->fill($data);
             }
         } else {
             foreach ($this->value as $data) {
                 $key = array_get($data, $relation->getRelated()->getKeyName());
 
                 $forms[$key] = $this->buildNestedForm($this->column, $this->builder, $key)
-                    ->fill($data);
+                                    ->fill($data);
             }
         }
 
@@ -376,7 +375,7 @@ class HasMany extends Field
      */
     protected function setupScript($script)
     {
-        $method = 'setupScriptFor'.ucfirst($this->viewMode).'View';
+        $method = 'setupScriptFor' . ucfirst($this->viewMode) . 'View';
 
         call_user_func([$this, $method], $script);
     }
@@ -391,7 +390,7 @@ class HasMany extends Field
     protected function setupScriptForDefaultView($templateScript)
     {
         $removeClass = NestedForm::REMOVE_FLAG_CLASS;
-        $defaultKey = NestedForm::DEFAULT_KEY_NAME;
+        $defaultKey  = NestedForm::DEFAULT_KEY_NAME;
 
         /**
          * When add a new sub form, replace all element key in new sub form.
@@ -433,7 +432,7 @@ EOT;
     protected function setupScriptForTabView($templateScript)
     {
         $removeClass = NestedForm::REMOVE_FLAG_CLASS;
-        $defaultKey = NestedForm::DEFAULT_KEY_NAME;
+        $defaultKey  = NestedForm::DEFAULT_KEY_NAME;
 
         $script = <<<EOT
 
@@ -469,7 +468,7 @@ if ($('.has-error').length) {
         var tabId = '#'+$(this).attr('id');
         $('li a[href="'+tabId+'"] i').removeClass('hide');
     });
-    
+
     var first = $('.has-error:first').parent().attr('id');
     $('li a[href="#'+first+'"]').tab('show');
 }
@@ -491,14 +490,14 @@ EOT;
         $this->view = $this->views[$this->viewMode];
 
         list($template, $script) = $this->buildNestedForm($this->column, $this->builder)
-            ->getTemplateHtmlAndScript();
+                                        ->getTemplateHtmlAndScript();
 
         $this->setupScript($script);
 
         return parent::render()->with([
             'forms'        => $this->buildRelatedForms(),
             'template'     => $template,
-            'relationName' => $this->relationName,
+            'relationName' => $this->relationName
         ]);
     }
 }

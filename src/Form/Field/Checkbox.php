@@ -1,19 +1,28 @@
 <?php
 
-namespace Encore\Admin\Form\Field;
+namespace StartupWrench\Admin\Form\Field;
 
 use Illuminate\Contracts\Support\Arrayable;
 
 class Checkbox extends MultipleSelect
 {
+    /**
+     * @var mixed
+     */
     protected $inline = true;
 
+    /**
+     * @var array
+     */
     protected static $css = [
-        '/vendor/laravel-admin/AdminLTE/plugins/iCheck/all.css',
+        '/vendor/laravel-admin/AdminLTE/plugins/iCheck/all.css'
     ];
 
+    /**
+     * @var array
+     */
     protected static $js = [
-        '/vendor/laravel-admin/AdminLTE/plugins/iCheck/icheck.min.js',
+        '/vendor/laravel-admin/AdminLTE/plugins/iCheck/icheck.min.js'
     ];
 
     /**

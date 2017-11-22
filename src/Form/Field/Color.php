@@ -1,15 +1,21 @@
 <?php
 
-namespace Encore\Admin\Form\Field;
+namespace StartupWrench\Admin\Form\Field;
 
 class Color extends Text
 {
+    /**
+     * @var array
+     */
     protected static $css = [
-        '/vendor/laravel-admin/AdminLTE/plugins/colorpicker/bootstrap-colorpicker.min.css',
+        '/vendor/laravel-admin/AdminLTE/plugins/colorpicker/bootstrap-colorpicker.min.css'
     ];
 
+    /**
+     * @var array
+     */
     protected static $js = [
-        '/vendor/laravel-admin/AdminLTE/plugins/colorpicker/bootstrap-colorpicker.min.js',
+        '/vendor/laravel-admin/AdminLTE/plugins/colorpicker/bootstrap-colorpicker.min.js'
     ];
 
     /**
@@ -54,7 +60,7 @@ class Color extends Text
         $this->script = "$('{$this->getElementClassSelector()}').parent().colorpicker($options);";
 
         $this->prepend('<i></i>')
-            ->defaultAttribute('style', 'width: 140px');
+             ->defaultAttribute('style', 'width: 140px');
 
         return parent::render();
     }

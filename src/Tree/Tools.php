@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Tree;
+namespace StartupWrench\Admin\Tree;
 
-use Encore\Admin\Tree;
+use StartupWrench\Admin\Tree;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Collection;
@@ -30,7 +30,7 @@ class Tools implements Renderable
      */
     public function __construct(Tree $tree)
     {
-        $this->tree = $tree;
+        $this->tree  = $tree;
         $this->tools = new Collection();
     }
 

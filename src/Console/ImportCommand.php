@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Console;
+namespace StartupWrench\Admin\Console;
 
-use Encore\Admin\Admin;
+use StartupWrench\Admin\Admin;
 use Illuminate\Console\Command;
 
 class ImportCommand extends Command

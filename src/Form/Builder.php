@@ -1,9 +1,9 @@
 <?php
 
-namespace Encore\Admin\Form;
+namespace StartupWrench\Admin\Form;
 
-use Encore\Admin\Admin;
-use Encore\Admin\Form;
+use StartupWrench\Admin\Admin;
+use StartupWrench\Admin\Form;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Str;
@@ -43,14 +43,14 @@ class Builder
      */
     protected $options = [
         'enableSubmit' => true,
-        'enableReset'  => true,
+        'enableReset'  => true
     ];
 
     /**
      * Modes constants.
      */
-    const MODE_VIEW = 'view';
-    const MODE_EDIT = 'edit';
+    const MODE_VIEW   = 'view';
+    const MODE_EDIT   = 'edit';
     const MODE_CREATE = 'create';
 
     /**
@@ -77,7 +77,7 @@ class Builder
      */
     protected $width = [
         'label' => 2,
-        'field' => 8,
+        'field' => 8
     ];
 
     /**
@@ -178,7 +178,7 @@ class Builder
     {
         $this->width = [
             'label' => $label,
-            'field' => $field,
+            'field' => $field
         ];
 
         return $this;
@@ -206,7 +206,7 @@ class Builder
         }
 
         if ($this->isMode(static::MODE_EDIT)) {
-            return $this->form->resource().'/'.$this->id;
+            return $this->form->resource() . '/' . $this->id;
         }
 
         if ($this->isMode(static::MODE_CREATE)) {
@@ -398,8 +398,8 @@ class Builder
 
         $this->addRedirectUrlField();
 
-        $attributes['action'] = $this->getAction();
-        $attributes['method'] = array_get($options, 'method', 'post');
+        $attributes['action']         = $this->getAction();
+        $attributes['method']         = array_get($options, 'method', 'post');
         $attributes['accept-charset'] = 'UTF-8';
 
         $attributes['class'] = array_get($options, 'class');
@@ -413,7 +413,7 @@ class Builder
             $html[] = "$name=\"$value\"";
         }
 
-        return '<form '.implode(' ', $html).' pjax-container>';
+        return '<form ' . implode(' ', $html) . ' pjax-container>';
     }
 
     /**
@@ -423,7 +423,7 @@ class Builder
      */
     public function close()
     {
-        $this->form = null;
+        $this->form   = null;
         $this->fields = null;
 
         return '</form>';
@@ -487,7 +487,7 @@ EOT;
         $reservedColumns = [
             $this->form->model()->getKeyName(),
             $this->form->model()->getCreatedAtColumn(),
-            $this->form->model()->getUpdatedAtColumn(),
+            $this->form->model()->getUpdatedAtColumn()
         ];
 
         $this->fields = $this->fields()->reject(function (Field $field) use ($reservedColumns) {
@@ -536,7 +536,7 @@ SCRIPT;
         $data = [
             'form'   => $this,
             'tabObj' => $tabObj,
-            'width'  => $this->width,
+            'width'  => $this->width
         ];
 
         return view($this->view, $data)->render();

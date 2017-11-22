@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Grid\Displayers;
+namespace StartupWrench\Admin\Grid\Displayers;
 
-use Encore\Admin\Admin;
+use StartupWrench\Admin\Admin;
 
 class Actions extends AbstractDisplayer
 {
@@ -129,6 +129,10 @@ class Actions extends AbstractDisplayer
         return implode('', $actions);
     }
 
+    /**
+     * @param $key
+     * @return mixed
+     */
     public function setKey($key)
     {
         $this->key = $key;
@@ -136,6 +140,9 @@ class Actions extends AbstractDisplayer
         return $this;
     }
 
+    /**
+     * @return mixed
+     */
     public function getKey()
     {
         if ($this->key) {
@@ -167,8 +174,8 @@ EOT;
     protected function deleteAction()
     {
         $deleteConfirm = trans('admin.delete_confirm');
-        $confirm = trans('admin.confirm');
-        $cancel = trans('admin.cancel');
+        $confirm       = trans('admin.confirm');
+        $cancel        = trans('admin.cancel');
 
         $script = <<<SCRIPT
 

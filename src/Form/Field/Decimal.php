@@ -1,11 +1,14 @@
 <?php
 
-namespace Encore\Admin\Form\Field;
+namespace StartupWrench\Admin\Form\Field;
 
 class Decimal extends Text
 {
+    /**
+     * @var array
+     */
     protected static $js = [
-        '/vendor/laravel-admin/AdminLTE/plugins/input-mask/jquery.inputmask.bundle.min.js',
+        '/vendor/laravel-admin/AdminLTE/plugins/input-mask/jquery.inputmask.bundle.min.js'
     ];
 
     /**
@@ -15,7 +18,7 @@ class Decimal extends Text
      */
     protected $options = [
         'alias'      => 'decimal',
-        'rightAlign' => true,
+        'rightAlign' => true
     ];
 
     public function render()
@@ -25,7 +28,7 @@ class Decimal extends Text
         $this->script = "$('{$this->getElementClassSelector()}').inputmask($options);";
 
         $this->prepend('<i class="fa fa-terminal"></i>')
-            ->defaultAttribute('style', 'width: 130px');
+             ->defaultAttribute('style', 'width: 130px');
 
         return parent::render();
     }

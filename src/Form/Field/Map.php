@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Form\Field;
+namespace StartupWrench\Admin\Form\Field;
 
-use Encore\Admin\Form\Field;
+use StartupWrench\Admin\Form\Field;
 
 class Map extends Field
 {
@@ -23,12 +23,16 @@ class Map extends Field
         if (config('app.locale') == 'zh-CN') {
             $js = '//map.qq.com/api/js?v=2.exp';
         } else {
-            $js = '//maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&key='.env('GOOGLE_API_KEY');
+            $js = '//maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&key=' . env('GOOGLE_API_KEY');
         }
 
         return compact('js');
     }
 
+    /**
+     * @param $column
+     * @param $arguments
+     */
     public function __construct($column, $arguments)
     {
         $this->column['lat'] = $column;
@@ -37,7 +41,7 @@ class Map extends Field
         array_shift($arguments);
 
         $this->label = $this->formatLabel($arguments);
-        $this->id = $this->formatId($this->column);
+        $this->id    = $this->formatId($this->column);
 
         /*
          * Google map is blocked in mainland China

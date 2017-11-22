@@ -3,11 +3,11 @@
 namespace Tests\Controllers;
 
 use App\Http\Controllers\Controller;
-use Encore\Admin\Controllers\ModelForm;
-use Encore\Admin\Facades\Admin;
-use Encore\Admin\Form;
-use Encore\Admin\Grid;
-use Encore\Admin\Layout\Content;
+use StartupWrench\Admin\Controllers\ModelForm;
+use StartupWrench\Admin\Facades\Admin;
+use StartupWrench\Admin\Form;
+use StartupWrench\Admin\Grid;
+use StartupWrench\Admin\Layout\Content;
 use Tests\Models\Image;
 
 class ImageController extends Controller
@@ -92,7 +92,7 @@ class ImageController extends Controller
             $form->image('image3')->flip('v');
             $form->image('image4')->move(null, 'renamed.jpeg');
             $form->image('image5')->name(function ($file) {
-                return 'asdasdasdasdasd.'.$file->guessExtension();
+                return 'asdasdasdasdasd.' . $file->guessExtension();
             });
             $form->image('image6')->uniqueName();
 

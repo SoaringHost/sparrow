@@ -1,24 +1,37 @@
 <?php
 
-namespace Encore\Admin\Form\Field;
+namespace StartupWrench\Admin\Form\Field;
 
-use Encore\Admin\Form\Field;
+use StartupWrench\Admin\Form\Field;
 
 class SwitchField extends Field
 {
+    /**
+     * @var array
+     */
     protected static $css = [
-        '/vendor/laravel-admin/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.min.css',
+        '/vendor/laravel-admin/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.min.css'
     ];
 
+    /**
+     * @var array
+     */
     protected static $js = [
-        '/vendor/laravel-admin/bootstrap-switch/dist/js/bootstrap-switch.min.js',
+        '/vendor/laravel-admin/bootstrap-switch/dist/js/bootstrap-switch.min.js'
     ];
 
+    /**
+     * @var array
+     */
     protected $states = [
         'on'  => ['value' => 1, 'text' => 'ON', 'color' => 'primary'],
-        'off' => ['value' => 0, 'text' => 'OFF', 'color' => 'default'],
+        'off' => ['value' => 0, 'text' => 'OFF', 'color' => 'default']
     ];
 
+    /**
+     * @param array $states
+     * @return mixed
+     */
     public function states($states = [])
     {
         foreach (array_dot($states) as $key => $state) {
@@ -28,6 +41,10 @@ class SwitchField extends Field
         return $this;
     }
 
+    /**
+     * @param $value
+     * @return mixed
+     */
     public function prepare($value)
     {
         if (isset($this->states[$value])) {

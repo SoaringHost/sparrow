@@ -1,11 +1,14 @@
 <?php
 
-namespace Encore\Admin\Grid\Displayers;
+namespace StartupWrench\Admin\Grid\Displayers;
 
 use Illuminate\Contracts\Support\Arrayable;
 
 class Badge extends AbstractDisplayer
 {
+    /**
+     * @param $style
+     */
     public function display($style = 'red')
     {
         if ($this->value instanceof Arrayable) {

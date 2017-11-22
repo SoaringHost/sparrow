@@ -3,11 +3,11 @@
 namespace Tests\Controllers;
 
 use App\Http\Controllers\Controller;
-use Encore\Admin\Controllers\ModelForm;
-use Encore\Admin\Facades\Admin;
-use Encore\Admin\Form;
-use Encore\Admin\Grid;
-use Encore\Admin\Layout\Content;
+use StartupWrench\Admin\Controllers\ModelForm;
+use StartupWrench\Admin\Facades\Admin;
+use StartupWrench\Admin\Form;
+use StartupWrench\Admin\Grid;
+use StartupWrench\Admin\Layout\Content;
 use Tests\Models\Tag;
 use Tests\Models\User;
 
@@ -86,11 +86,11 @@ class UserController extends Controller
             $grid->profile()->end_at('结束时间');
 
             $grid->column('column1_not_in_table')->display(function () {
-                return 'full name:'.$this->full_name;
+                return 'full name:' . $this->full_name;
             });
 
             $grid->column('column2_not_in_table')->display(function () {
-                return $this->email.'#'.$this->profile['color'];
+                return $this->email . '#' . $this->profile['color'];
             });
 
             $grid->tags()->display(function ($tags) {

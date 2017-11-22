@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\Admin\Exception;
+namespace StartupWrench\Admin\Exception;
 
 use Illuminate\Support\MessageBag;
 use Illuminate\Support\ViewErrorBag;
@@ -20,7 +20,7 @@ class Handler
             'type'    => get_class($exception),
             'message' => $exception->getMessage(),
             'file'    => $exception->getFile(),
-            'line'    => $exception->getLine(),
+            'line'    => $exception->getLine()
         ]);
 
         $errors = new ViewErrorBag();

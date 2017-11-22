@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\Admin\Form\Field;
+namespace StartupWrench\Admin\Form\Field;
 
 use Intervention\Image\ImageManagerStatic;
 
@@ -64,7 +64,7 @@ trait ImageField
 
         $this->interventionCalls[] = [
             'method'    => $method,
-            'arguments' => $arguments,
+            'arguments' => $arguments
         ];
 
         return $this;

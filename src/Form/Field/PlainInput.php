@@ -1,13 +1,23 @@
 <?php
 
-namespace Encore\Admin\Form\Field;
+namespace StartupWrench\Admin\Form\Field;
 
 trait PlainInput
 {
+    /**
+     * @var mixed
+     */
     protected $prepend;
 
+    /**
+     * @var mixed
+     */
     protected $append;
 
+    /**
+     * @param $string
+     * @return mixed
+     */
     public function prepend($string)
     {
         if (is_null($this->prepend)) {
@@ -17,6 +27,10 @@ trait PlainInput
         return $this;
     }
 
+    /**
+     * @param $string
+     * @return mixed
+     */
     public function append($string)
     {
         if (is_null($this->append)) {
@@ -33,6 +47,11 @@ trait PlainInput
         }
     }
 
+    /**
+     * @param $attribute
+     * @param $value
+     * @return mixed
+     */
     protected function defaultAttribute($attribute, $value)
     {
         if (!array_key_exists($attribute, $this->attributes)) {

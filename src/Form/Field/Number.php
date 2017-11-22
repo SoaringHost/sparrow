@@ -1,11 +1,14 @@
 <?php
 
-namespace Encore\Admin\Form\Field;
+namespace StartupWrench\Admin\Form\Field;
 
 class Number extends Text
 {
+    /**
+     * @var array
+     */
     protected static $js = [
-        '/vendor/laravel-admin/number-input/bootstrap-number-input.js',
+        '/vendor/laravel-admin/number-input/bootstrap-number-input.js'
     ];
 
     public function render()

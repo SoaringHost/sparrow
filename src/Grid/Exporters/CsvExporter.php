@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\Admin\Grid\Exporters;
+namespace StartupWrench\Admin\Grid\Exporters;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
@@ -13,12 +13,12 @@ class CsvExporter extends AbstractExporter
      */
     public function export()
     {
-        $filename = $this->getTable().'.csv';
+        $filename = $this->getTable() . '.csv';
 
         $headers = [
             'Content-Encoding'    => 'UTF-8',
             'Content-Type'        => 'text/csv;charset=UTF-8',
-            'Content-Disposition' => "attachment; filename=\"$filename\"",
+            'Content-Disposition' => "attachment; filename=\"$filename\""
         ];
 
         response()->stream(function () {

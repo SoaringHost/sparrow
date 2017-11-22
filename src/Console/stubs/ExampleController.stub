@@ -2,12 +2,12 @@
 
 namespace DummyNamespace;
 
-use Encore\Admin\Form;
-use Encore\Admin\Grid;
-use Encore\Admin\Facades\Admin;
-use Encore\Admin\Layout\Content;
+use StartupWrench\Admin\Form;
+use StartupWrench\Admin\Grid;
+use StartupWrench\Admin\Facades\Admin;
+use StartupWrench\Admin\Layout\Content;
 use App\Http\Controllers\Controller;
-use Encore\Admin\Controllers\ModelForm;
+use StartupWrench\Admin\Controllers\ModelForm;
 
 class ExampleController extends Controller
 {

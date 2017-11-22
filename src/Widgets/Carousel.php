@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\Admin\Widgets;
+namespace StartupWrench\Admin\Widgets;
 
 use Illuminate\Contracts\Support\Renderable;
 
@@ -30,7 +30,7 @@ class Carousel extends Widget implements Renderable
     {
         $this->items = $items;
 
-        $this->id('carousel-'.uniqid());
+        $this->id('carousel-' . uniqid());
         $this->class('carousel slide');
         $this->offsetSet('data-ride', 'carousel');
     }
@@ -55,7 +55,7 @@ class Carousel extends Widget implements Renderable
         $variables = [
             'items'      => $this->items,
             'title'      => $this->title,
-            'attributes' => $this->formatAttributes(),
+            'attributes' => $this->formatAttributes()
         ];
 
         return view($this->view, $variables)->render();

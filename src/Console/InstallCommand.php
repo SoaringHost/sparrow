@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Console;
+namespace StartupWrench\Admin\Console;
 
-use Encore\Admin\Auth\Database\Administrator;
+use StartupWrench\Admin\Auth\Database\Administrator;
 use Illuminate\Console\Command;
 
 class InstallCommand extends Command
@@ -50,7 +50,7 @@ class InstallCommand extends Command
         $this->call('migrate');
 
         if (Administrator::count() == 0) {
-            $this->call('db:seed', ['--class' => \Encore\Admin\Auth\Database\AdminTablesSeeder::class]);
+            $this->call('db:seed', ['--class' => \StartupWrench\Admin\Auth\Database\AdminTablesSeeder::class]);
         }
     }
 
@@ -70,7 +70,7 @@ class InstallCommand extends Command
         }
 
         $this->makeDir('/');
-        $this->line('<info>Admin directory was created:</info> '.str_replace(base_path(), '', $this->directory));
+        $this->line('<info>Admin directory was created:</info> ' . str_replace(base_path(), '', $this->directory));
 
         $this->makeDir('Controllers');
 
@@ -88,14 +88,14 @@ class InstallCommand extends Command
      */
     public function createHomeController()
     {
-        $homeController = $this->directory.'/Controllers/HomeController.php';
-        $contents = $this->getStub('HomeController');
+        $homeController = $this->directory . '/Controllers/HomeController.php';
+        $contents       = $this->getStub('HomeController');
 
         $this->laravel['files']->put(
             $homeController,
             str_replace('DummyNamespace', config('admin.route.namespace'), $contents)
         );
-        $this->line('<info>HomeController file was created:</info> '.str_replace(base_path(), '', $homeController));
+        $this->line('<info>HomeController file was created:</info> ' . str_replace(base_path(), '', $homeController));
     }
 
     /**
@@ -105,14 +105,14 @@ class InstallCommand extends Command
      */
     public function createExampleController()
     {
-        $exampleController = $this->directory.'/Controllers/ExampleController.php';
-        $contents = $this->getStub('ExampleController');
+        $exampleController = $this->directory . '/Controllers/ExampleController.php';
+        $contents          = $this->getStub('ExampleController');
 
         $this->laravel['files']->put(
             $exampleController,
             str_replace('DummyNamespace', config('admin.route.namespace'), $contents)
         );
-        $this->line('<info>ExampleController file was created:</info> '.str_replace(base_path(), '', $exampleController));
+        $this->line('<info>ExampleController file was created:</info> ' . str_replace(base_path(), '', $exampleController));
     }
 
     /**
@@ -122,11 +122,11 @@ class InstallCommand extends Command
      */
     protected function createBootstrapFile()
     {
-        $file = $this->directory.'/bootstrap.php';
+        $file = $this->directory . '/bootstrap.php';
 
         $contents = $this->getStub('bootstrap');
         $this->laravel['files']->put($file, $contents);
-        $this->line('<info>Bootstrap file was created:</info> '.str_replace(base_path(), '', $file));
+        $this->line('<info>Bootstrap file was created:</info> ' . str_replace(base_path(), '', $file));
     }
 
     /**
@@ -136,11 +136,11 @@ class InstallCommand extends Command
      */
     protected function createRoutesFile()
     {
-        $file = $this->directory.'/routes.php';
+        $file = $this->directory . '/routes.php';
 
         $contents = $this->getStub('routes');
         $this->laravel['files']->put($file, str_replace('DummyNamespace', config('admin.route.namespace'), $contents));
-        $this->line('<info>Routes file was created:</info> '.str_replace(base_path(), '', $file));
+        $this->line('<info>Routes file was created:</info> ' . str_replace(base_path(), '', $file));
     }
 
     /**
@@ -152,7 +152,7 @@ class InstallCommand extends Command
      */
     protected function getStub($name)
     {
-        return $this->laravel['files']->get(__DIR__."/stubs/$name.stub");
+        return $this->laravel['files']->get(__DIR__ . "/stubs/$name.stub");
     }
 
     /**

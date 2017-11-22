@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Grid\Tools;
+namespace StartupWrench\Admin\Grid\Tools;
 
-use Encore\Admin\Grid;
+use StartupWrench\Admin\Grid;
 
 class CreateButton extends AbstractTool
 {

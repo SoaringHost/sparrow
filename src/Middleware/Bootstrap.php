@@ -1,13 +1,18 @@
 <?php
 
-namespace Encore\Admin\Middleware;
+namespace StartupWrench\Admin\Middleware;
 
-use Encore\Admin\Form;
-use Encore\Admin\Grid;
+use StartupWrench\Admin\Form;
+use StartupWrench\Admin\Grid;
 use Illuminate\Http\Request;
 
 class Bootstrap
 {
+    /**
+     * @param Request $request
+     * @param \Closure $next
+     * @return mixed
+     */
     public function handle(Request $request, \Closure $next)
     {
         Form::registerBuiltinFields();

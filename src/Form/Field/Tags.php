@@ -1,22 +1,34 @@
 <?php
 
-namespace Encore\Admin\Form\Field;
+namespace StartupWrench\Admin\Form\Field;
 
-use Encore\Admin\Form\Field;
+use StartupWrench\Admin\Form\Field;
 use Illuminate\Support\Arr;
 
 class Tags extends Field
 {
+    /**
+     * @var array
+     */
     protected $value = [];
 
+    /**
+     * @var array
+     */
     protected static $css = [
-        '/vendor/laravel-admin/AdminLTE/plugins/select2/select2.min.css',
+        '/vendor/laravel-admin/AdminLTE/plugins/select2/select2.min.css'
     ];
 
+    /**
+     * @var array
+     */
     protected static $js = [
-        '/vendor/laravel-admin/AdminLTE/plugins/select2/select2.full.min.js',
+        '/vendor/laravel-admin/AdminLTE/plugins/select2/select2.full.min.js'
     ];
 
+    /**
+     * @param $data
+     */
     public function fill($data)
     {
         $this->value = array_get($data, $this->column);
@@ -28,6 +40,10 @@ class Tags extends Field
         $this->value = array_filter((array) $this->value);
     }
 
+    /**
+     * @param $value
+     * @return mixed
+     */
     public function prepare($value)
     {
         if (is_array($value) && !Arr::isAssoc($value)) {
@@ -37,6 +53,10 @@ class Tags extends Field
         return $value;
     }
 
+    /**
+     * @param $value
+     * @return mixed
+     */
     public function value($value = null)
     {
         if (is_null($value)) {

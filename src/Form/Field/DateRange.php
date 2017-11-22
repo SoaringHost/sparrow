@@ -1,20 +1,29 @@
 <?php
 
-namespace Encore\Admin\Form\Field;
+namespace StartupWrench\Admin\Form\Field;
 
-use Encore\Admin\Form\Field;
+use StartupWrench\Admin\Form\Field;
 
 class DateRange extends Field
 {
+    /**
+     * @var array
+     */
     protected static $css = [
-        '/vendor/laravel-admin/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css',
+        '/vendor/laravel-admin/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css'
     ];
 
+    /**
+     * @var array
+     */
     protected static $js = [
         '/vendor/laravel-admin/moment/min/moment-with-locales.min.js',
-        '/vendor/laravel-admin/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js',
+        '/vendor/laravel-admin/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js'
     ];
 
+    /**
+     * @var string
+     */
     protected $format = 'YYYY-MM-DD';
 
     /**
@@ -24,18 +33,26 @@ class DateRange extends Field
      */
     protected $column = [];
 
+    /**
+     * @param $column
+     * @param $arguments
+     */
     public function __construct($column, $arguments)
     {
         $this->column['start'] = $column;
-        $this->column['end'] = $arguments[0];
+        $this->column['end']   = $arguments[0];
 
         array_shift($arguments);
         $this->label = $this->formatLabel($arguments);
-        $this->id = $this->formatId($this->column);
+        $this->id    = $this->formatId($this->column);
 
         $this->options(['format' => $this->format]);
     }
 
+    /**
+     * @param $value
+     * @return mixed
+     */
     public function prepare($value)
     {
         if ($value === '') {
@@ -50,7 +67,7 @@ class DateRange extends Field
         $this->options['locale'] = config('app.locale');
 
         $startOptions = json_encode($this->options);
-        $endOptions = json_encode($this->options + ['useCurrent' => false]);
+        $endOptions   = json_encode($this->options + ['useCurrent' => false]);
 
         $class = $this->getElementClassSelector();
 

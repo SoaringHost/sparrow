@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Controllers;
+namespace StartupWrench\Admin\Controllers;
 
-use Encore\Admin\Admin;
+use StartupWrench\Admin\Admin;
 
 class Dashboard
 {
@@ -20,20 +20,20 @@ class Dashboard
     public static function environment()
     {
         $envs = [
-            ['name' => 'PHP version',       'value' => 'PHP/'.PHP_VERSION],
-            ['name' => 'Laravel version',   'value' => app()->version()],
-            ['name' => 'CGI',               'value' => php_sapi_name()],
-            ['name' => 'Uname',             'value' => php_uname()],
-            ['name' => 'Server',            'value' => array_get($_SERVER, 'SERVER_SOFTWARE')],
+            ['name' => 'PHP version', 'value' => 'PHP/' . PHP_VERSION],
+            ['name' => 'Laravel version', 'value' => app()->version()],
+            ['name' => 'CGI', 'value' => php_sapi_name()],
+            ['name' => 'Uname', 'value' => php_uname()],
+            ['name' => 'Server', 'value' => array_get($_SERVER, 'SERVER_SOFTWARE')],
 
-            ['name' => 'Cache driver',      'value' => config('cache.default')],
-            ['name' => 'Session driver',    'value' => config('session.driver')],
-            ['name' => 'Queue driver',      'value' => config('queue.default')],
+            ['name' => 'Cache driver', 'value' => config('cache.default')],
+            ['name' => 'Session driver', 'value' => config('session.driver')],
+            ['name' => 'Queue driver', 'value' => config('queue.default')],
 
-            ['name' => 'Timezone',          'value' => config('app.timezone')],
-            ['name' => 'Locale',            'value' => config('app.locale')],
-            ['name' => 'Env',               'value' => config('app.env')],
-            ['name' => 'URL',               'value' => config('app.url')],
+            ['name' => 'Timezone', 'value' => config('app.timezone')],
+            ['name' => 'Locale', 'value' => config('app.locale')],
+            ['name' => 'Env', 'value' => config('app.env')],
+            ['name' => 'URL', 'value' => config('app.url')]
         ];
 
         return view('admin::dashboard.environment', compact('envs'));
@@ -45,55 +45,55 @@ class Dashboard
     public static function extensions()
     {
         $extensions = [
-            'helpers' => [
+            'helpers'       => [
                 'name' => 'laravel-admin-ext/helpers',
                 'link' => 'https://github.com/laravel-admin-extensions/helpers',
-                'icon' => 'gears',
+                'icon' => 'gears'
             ],
-            'log-viewer' => [
+            'log-viewer'    => [
                 'name' => 'laravel-admin-ext/log-viewer',
                 'link' => 'https://github.com/laravel-admin-extensions/log-viewer',
-                'icon' => 'database',
+                'icon' => 'database'
             ],
-            'backup' => [
+            'backup'        => [
                 'name' => 'laravel-admin-ext/backup',
                 'link' => 'https://github.com/laravel-admin-extensions/backup',
-                'icon' => 'copy',
+                'icon' => 'copy'
             ],
-            'config' => [
+            'config'        => [
                 'name' => 'laravel-admin-ext/config',
                 'link' => 'https://github.com/laravel-admin-extensions/config',
-                'icon' => 'toggle-on',
+                'icon' => 'toggle-on'
             ],
-            'api-tester' => [
+            'api-tester'    => [
                 'name' => 'laravel-admin-ext/api-tester',
                 'link' => 'https://github.com/laravel-admin-extensions/api-tester',
-                'icon' => 'sliders',
+                'icon' => 'sliders'
             ],
             'media-manager' => [
                 'name' => 'laravel-admin-ext/media-manager',
                 'link' => 'https://github.com/laravel-admin-extensions/media-manager',
-                'icon' => 'file',
+                'icon' => 'file'
             ],
-            'scheduling' => [
+            'scheduling'    => [
                 'name' => 'laravel-admin-ext/scheduling',
                 'link' => 'https://github.com/laravel-admin-extensions/scheduling',
-                'icon' => 'clock-o',
+                'icon' => 'clock-o'
             ],
-            'reporter' => [
+            'reporter'      => [
                 'name' => 'laravel-admin-ext/reporter',
                 'link' => 'https://github.com/laravel-admin-extensions/reporter',
-                'icon' => 'bug',
+                'icon' => 'bug'
             ],
-            'translation' => [
+            'translation'   => [
                 'name' => 'laravel-admin-ext/translation',
                 'link' => 'https://github.com/laravel-admin-extensions/translation',
-                'icon' => 'language',
-            ],
+                'icon' => 'language'
+            ]
         ];
 
         foreach ($extensions as &$extension) {
-            $name = explode('/', $extension['name']);
+            $name                   = explode('/', $extension['name']);
             $extension['installed'] = array_key_exists(end($name), Admin::$extensions);
         }
 

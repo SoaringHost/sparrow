@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Form;
+namespace StartupWrench\Admin\Form;
 
-use Encore\Admin\Form;
+use StartupWrench\Admin\Form;
 use Illuminate\Support\Collection;
 
 class Tab
@@ -47,7 +47,7 @@ class Tab
     {
         $fields = $this->collectFields($content);
 
-        $id = 'form-'.($this->tabs->count() + 1);
+        $id = 'form-' . ($this->tabs->count() + 1);
 
         $this->tabs->push(compact('id', 'title', 'fields', 'active'));
 
@@ -85,7 +85,7 @@ class Tab
         if ($this->tabs->filter(function ($tab) {
             return $tab['active'];
         })->isEmpty()) {
-            $first = $this->tabs->first();
+            $first           = $this->tabs->first();
             $first['active'] = true;
 
             $this->tabs->offsetSet(0, $first);

@@ -1,9 +1,9 @@
 <?php
 
-namespace Encore\Admin\Form;
+namespace StartupWrench\Admin\Form;
 
-use Encore\Admin\Facades\Admin;
-use Encore\Admin\Form;
+use StartupWrench\Admin\Facades\Admin;
+use StartupWrench\Admin\Form;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Collection;
@@ -28,7 +28,7 @@ class Tools implements Renderable
      */
     protected $options = [
         'enableListButton' => true,
-        'enableBackButton' => true,
+        'enableBackButton' => true
     ];
 
     /**
@@ -68,7 +68,7 @@ EOT;
 
     public function listButton()
     {
-        $slice = Str::contains($this->form->getResource(0), '/edit') ? null : -1;
+        $slice    = Str::contains($this->form->getResource(0), '/edit') ? null : -1;
         $resource = $this->form->getResource($slice);
 
         $text = trans('admin.list');

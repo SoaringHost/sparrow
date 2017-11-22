@@ -1,6 +1,6 @@
 <?php
 
-use Encore\Admin\Auth\Database\Administrator;
+use StartupWrench\Admin\Auth\Database\Administrator;
 use Tests\Models\Profile as ProfileModel;
 use Tests\Models\User as UserModel;
 
@@ -16,37 +16,40 @@ class UserGridTest extends TestCase
     public function testIndexPage()
     {
         $this->visit('admin/users')
-            ->see('All users')
-            ->seeInElement('tr th', 'Username')
-            ->seeInElement('tr th', 'Email')
-            ->seeInElement('tr th', 'Mobile')
-            ->seeInElement('tr th', 'Full name')
-            ->seeInElement('tr th', 'Avatar')
-            ->seeInElement('tr th', 'Post code')
-            ->seeInElement('tr th', 'Address')
-            ->seeInElement('tr th', 'Position')
-            ->seeInElement('tr th', 'Color')
-            ->seeInElement('tr th', '开始时间')
-            ->seeInElement('tr th', '结束时间')
-            ->seeInElement('tr th', 'Color')
-            ->seeInElement('tr th', 'Created at')
-            ->seeInElement('tr th', 'Updated at');
+             ->see('All users')
+             ->seeInElement('tr th', 'Username')
+             ->seeInElement('tr th', 'Email')
+             ->seeInElement('tr th', 'Mobile')
+             ->seeInElement('tr th', 'Full name')
+             ->seeInElement('tr th', 'Avatar')
+             ->seeInElement('tr th', 'Post code')
+             ->seeInElement('tr th', 'Address')
+             ->seeInElement('tr th', 'Position')
+             ->seeInElement('tr th', 'Color')
+             ->seeInElement('tr th', '开始时间')
+             ->seeInElement('tr th', '结束时间')
+             ->seeInElement('tr th', 'Color')
+             ->seeInElement('tr th', 'Created at')
+             ->seeInElement('tr th', 'Updated at');
 
         $action = url('/admin/users');
 
         $this->seeElement("form[action='$action'][method=get]")
-            ->seeElement("form[action='$action'][method=get] input[name=id]")
-            ->seeElement("form[action='$action'][method=get] input[name=username]")
-            ->seeElement("form[action='$action'][method=get] input[name=email]")
-            ->seeElement("form[action='$action'][method=get] input[name='profile[start_at][start]']")
-            ->seeElement("form[action='$action'][method=get] input[name='profile[start_at][end]']")
-            ->seeElement("form[action='$action'][method=get] input[name='profile[end_at][start]']")
-            ->seeElement("form[action='$action'][method=get] input[name='profile[end_at][end]']");
+             ->seeElement("form[action='$action'][method=get] input[name=id]")
+             ->seeElement("form[action='$action'][method=get] input[name=username]")
+             ->seeElement("form[action='$action'][method=get] input[name=email]")
+             ->seeElement("form[action='$action'][method=get] input[name='profile[start_at][start]']")
+             ->seeElement("form[action='$action'][method=get] input[name='profile[start_at][end]']")
+             ->seeElement("form[action='$action'][method=get] input[name='profile[end_at][start]']")
+             ->seeElement("form[action='$action'][method=get] input[name='profile[end_at][end]']");
 
         $this->seeInElement('a[href="/admin/users?_export_=all"]', 'All')
-            ->seeInElement('a[href="/admin/users/create"]', 'New');
+             ->seeInElement('a[href="/admin/users/create"]', 'New');
     }
 
+    /**
+     * @param $count
+     */
     protected function seedsTable($count = 100)
     {
         factory(\Tests\Models\User::class, $count)
@@ -62,7 +65,7 @@ class UserGridTest extends TestCase
         $this->seedsTable();
 
         $this->visit('admin/users')
-            ->see('All users');
+             ->see('All users');
 
         $this->assertCount(100, UserModel::all());
         $this->assertCount(100, ProfileModel::all());
@@ -73,7 +76,7 @@ class UserGridTest extends TestCase
         $this->seedsTable(65);
 
         $this->visit('admin/users')
-            ->see('All users');
+             ->see('All users');
 
         $this->visit('admin/users?page=2');
         $this->assertCount(20, $this->crawler()->filter('td a i[class*=fa-edit]'));
@@ -93,7 +96,7 @@ class UserGridTest extends TestCase
         $this->seedsTable(50);
 
         $this->visit('admin/users')
-            ->see('All users');
+             ->see('All users');
 
         $this->assertCount(50, UserModel::all());
         $this->assertCount(50, ProfileModel::all());
@@ -102,18 +105,18 @@ class UserGridTest extends TestCase
 
         $user = UserModel::find($id);
 
-        $this->visit('admin/users?id='.$id)
-            ->seeInElement('td', $user->username)
-            ->seeInElement('td', $user->email)
-            ->seeInElement('td', $user->mobile)
-            ->seeElement("img[src='{$user->avatar}']")
-            ->seeInElement('td', "{$user->profile->first_name} {$user->profile->last_name}")
-            ->seeInElement('td', $user->postcode)
-            ->seeInElement('td', $user->address)
-            ->seeInElement('td', "{$user->profile->latitude} {$user->profile->longitude}")
-            ->seeInElement('td', $user->color)
-            ->seeInElement('td', $user->start_at)
-            ->seeInElement('td', $user->end_at);
+        $this->visit('admin/users?id=' . $id)
+             ->seeInElement('td', $user->username)
+             ->seeInElement('td', $user->email)
+             ->seeInElement('td', $user->mobile)
+             ->seeElement("img[src='{$user->avatar}']")
+             ->seeInElement('td', "{$user->profile->first_name} {$user->profile->last_name}")
+             ->seeInElement('td', $user->postcode)
+             ->seeInElement('td', $user->address)
+             ->seeInElement('td', "{$user->profile->latitude} {$user->profile->longitude}")
+             ->seeInElement('td', $user->color)
+             ->seeInElement('td', $user->start_at)
+             ->seeInElement('td', $user->end_at);
     }
 
     public function testLikeFilter()
@@ -121,7 +124,7 @@ class UserGridTest extends TestCase
         $this->seedsTable(50);
 
         $this->visit('admin/users')
-            ->see('All users');
+             ->see('All users');
 
         $this->assertCount(50, UserModel::all());
         $this->assertCount(50, ProfileModel::all());
@@ -143,18 +146,18 @@ class UserGridTest extends TestCase
 
         $user = UserModel::with('profile')->find(rand(1, 50));
 
-        $this->visit('admin/users?email='.$user->email)
-            ->seeInElement('td', $user->username)
-            ->seeInElement('td', $user->email)
-            ->seeInElement('td', $user->mobile)
-            ->seeElement("img[src='{$user->avatar}']")
-            ->seeInElement('td', "{$user->profile->first_name} {$user->profile->last_name}")
-            ->seeInElement('td', $user->postcode)
-            ->seeInElement('td', $user->address)
-            ->seeInElement('td', "{$user->profile->latitude} {$user->profile->longitude}")
-            ->seeInElement('td', $user->color)
-            ->seeInElement('td', $user->start_at)
-            ->seeInElement('td', $user->end_at);
+        $this->visit('admin/users?email=' . $user->email)
+             ->seeInElement('td', $user->username)
+             ->seeInElement('td', $user->email)
+             ->seeInElement('td', $user->mobile)
+             ->seeElement("img[src='{$user->avatar}']")
+             ->seeInElement('td', "{$user->profile->first_name} {$user->profile->last_name}")
+             ->seeInElement('td', $user->postcode)
+             ->seeInElement('td', $user->address)
+             ->seeInElement('td', "{$user->profile->latitude} {$user->profile->longitude}")
+             ->seeInElement('td', $user->color)
+             ->seeInElement('td', $user->start_at)
+             ->seeInElement('td', $user->end_at);
     }
 
     public function testDisplayCallback()
@@ -164,10 +167,10 @@ class UserGridTest extends TestCase
         $user = UserModel::with('profile')->find(1);
 
         $this->visit('admin/users')
-            ->seeInElement('th', 'Column1 not in table')
-            ->seeInElement('th', 'Column2 not in table')
-            ->seeInElement('td', "full name:{$user->profile->first_name} {$user->profile->last_name}")
-            ->seeInElement('td', "{$user->email}#{$user->profile->color}");
+             ->seeInElement('th', 'Column1 not in table')
+             ->seeInElement('th', 'Column2 not in table')
+             ->seeInElement('td', "full name:{$user->profile->first_name} {$user->profile->last_name}")
+             ->seeInElement('td', "{$user->email}#{$user->profile->color}");
     }
 
     public function testHasManyRelation()
@@ -180,7 +183,7 @@ class UserGridTest extends TestCase
             });
 
         $this->visit('admin/users')
-            ->seeElement('td code');
+             ->seeElement('td code');
 
         $this->assertCount(50, $this->crawler()->filter('td code'));
     }
@@ -200,7 +203,7 @@ class UserGridTest extends TestCase
         $this->seedsTable(10);
 
         $this->visit('admin/users')
-            ->seeInElement('td a[class*=btn]', 'detail');
+             ->seeInElement('td a[class*=btn]', 'detail');
 
         $this->assertCount(5, $this->crawler()->filter('td a[class*=btn]'));
     }
@@ -210,19 +213,19 @@ class UserGridTest extends TestCase
         $this->seedsTable(98);
 
         $this->visit('admin/users')
-            ->seeElement('select[class*=per-page][name=per-page]')
-            ->seeInElement('select option', 10)
-            ->seeInElement('select option[selected]', 20)
-            ->seeInElement('select option', 30)
-            ->seeInElement('select option', 50)
-            ->seeInElement('select option', 100);
+             ->seeElement('select[class*=per-page][name=per-page]')
+             ->seeInElement('select option', 10)
+             ->seeInElement('select option[selected]', 20)
+             ->seeInElement('select option', 30)
+             ->seeInElement('select option', 50)
+             ->seeInElement('select option', 100);
 
         $this->assertEquals('http://localhost:8000/admin/users?per_page=20', $this->crawler()->filter('select option[selected]')->attr('value'));
 
         $perPage = rand(1, 98);
 
-        $this->visit('admin/users?per_page='.$perPage)
-            ->seeInElement('select option[selected]', $perPage)
-            ->assertCount($perPage + 1, $this->crawler()->filter('tr'));
+        $this->visit('admin/users?per_page=' . $perPage)
+             ->seeInElement('select option[selected]', $perPage)
+             ->assertCount($perPage + 1, $this->crawler()->filter('tr'));
     }
 }

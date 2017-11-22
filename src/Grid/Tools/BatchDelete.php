@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\Admin\Grid\Tools;
+namespace StartupWrench\Admin\Grid\Tools;
 
 class BatchDelete extends BatchAction
 {
@@ -10,8 +10,8 @@ class BatchDelete extends BatchAction
     public function script()
     {
         $deleteConfirm = trans('admin.delete_confirm');
-        $confirm = trans('admin.confirm');
-        $cancel = trans('admin.cancel');
+        $confirm       = trans('admin.confirm');
+        $cancel        = trans('admin.cancel');
 
         return <<<EOT
 

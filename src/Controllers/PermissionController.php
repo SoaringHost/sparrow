@@ -1,12 +1,12 @@
 <?php
 
-namespace Encore\Admin\Controllers;
+namespace StartupWrench\Admin\Controllers;
 
-use Encore\Admin\Auth\Database\Permission;
-use Encore\Admin\Facades\Admin;
-use Encore\Admin\Form;
-use Encore\Admin\Grid;
-use Encore\Admin\Layout\Content;
+use StartupWrench\Admin\Auth\Database\Permission;
+use StartupWrench\Admin\Facades\Admin;
+use StartupWrench\Admin\Form;
+use StartupWrench\Admin\Grid;
+use StartupWrench\Admin\Layout\Content;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Str;
 
@@ -76,7 +76,7 @@ class PermissionController extends Controller
 
                     if (Str::contains($path, ':')) {
                         list($method, $path) = explode(':', $path);
-                        $method = explode(',', $method);
+                        $method              = explode(',', $method);
                     }
 
                     $method = collect($method)->map(function ($name) {
@@ -85,7 +85,7 @@ class PermissionController extends Controller
                         return "<span class='label label-primary'>{$name}</span>";
                     })->implode('&nbsp;');
 
-                    $path = '/'.trim(config('admin.route.prefix'), '/').$path;
+                    $path = '/' . trim(config('admin.route.prefix'), '/') . $path;
 
                     return "<div style='margin-bottom: 5px;'>$method<code>$path</code></div>";
                 })->implode('');
@@ -116,8 +116,8 @@ class PermissionController extends Controller
             $form->text('name', trans('admin.name'))->rules('required');
 
             $form->multipleSelect('http_method', trans('admin.http.method'))
-                ->options($this->getHttpMethodsOptions())
-                ->help(trans('admin.all_methods_if_empty'));
+                 ->options($this->getHttpMethodsOptions())
+                 ->help(trans('admin.all_methods_if_empty'));
             $form->textarea('http_path', trans('admin.http.path'));
 
             $form->display('created_at', trans('admin.created_at'));

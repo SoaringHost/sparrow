@@ -1,13 +1,19 @@
 <?php
 
-namespace Encore\Admin\Form\Field;
+namespace StartupWrench\Admin\Form\Field;
 
 class Currency extends Text
 {
+    /**
+     * @var string
+     */
     protected $symbol = '$';
 
+    /**
+     * @var array
+     */
     protected static $js = [
-        '/vendor/laravel-admin/AdminLTE/plugins/input-mask/jquery.inputmask.bundle.min.js',
+        '/vendor/laravel-admin/AdminLTE/plugins/input-mask/jquery.inputmask.bundle.min.js'
     ];
 
     /**
@@ -19,9 +25,13 @@ class Currency extends Text
         'alias'              => 'currency',
         'radixPoint'         => '.',
         'prefix'             => '',
-        'removeMaskOnSubmit' => true,
+        'removeMaskOnSubmit' => true
     ];
 
+    /**
+     * @param $symbol
+     * @return mixed
+     */
     public function symbol($symbol)
     {
         $this->symbol = $symbol;
@@ -29,6 +39,9 @@ class Currency extends Text
         return $this;
     }
 
+    /**
+     * @param $value
+     */
     public function prepare($value)
     {
         return (float) $value;
@@ -45,7 +58,7 @@ $('{$this->getElementClassSelector()}').inputmask($options);
 EOT;
 
         $this->prepend($this->symbol)
-            ->defaultAttribute('style', 'width: 120px');
+             ->defaultAttribute('style', 'width: 120px');
 
         return parent::render();
     }

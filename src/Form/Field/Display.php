@@ -1,14 +1,20 @@
 <?php
 
-namespace Encore\Admin\Form\Field;
+namespace StartupWrench\Admin\Form\Field;
 
 use Closure;
-use Encore\Admin\Form\Field;
+use StartupWrench\Admin\Form\Field;
 
 class Display extends Field
 {
+    /**
+     * @var mixed
+     */
     protected $callback;
 
+    /**
+     * @param Closure $callback
+     */
     public function with(Closure $callback)
     {
         $this->callback = $callback;

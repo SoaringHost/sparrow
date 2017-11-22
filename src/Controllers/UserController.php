@@ -1,14 +1,14 @@
 <?php
 
-namespace Encore\Admin\Controllers;
+namespace StartupWrench\Admin\Controllers;
 
-use Encore\Admin\Auth\Database\Administrator;
-use Encore\Admin\Auth\Database\Permission;
-use Encore\Admin\Auth\Database\Role;
-use Encore\Admin\Facades\Admin;
-use Encore\Admin\Form;
-use Encore\Admin\Grid;
-use Encore\Admin\Layout\Content;
+use StartupWrench\Admin\Auth\Database\Administrator;
+use StartupWrench\Admin\Auth\Database\Permission;
+use StartupWrench\Admin\Auth\Database\Role;
+use StartupWrench\Admin\Facades\Admin;
+use StartupWrench\Admin\Form;
+use StartupWrench\Admin\Grid;
+use StartupWrench\Admin\Layout\Content;
 use Illuminate\Routing\Controller;
 
 class UserController extends Controller
@@ -103,9 +103,9 @@ class UserController extends Controller
             $form->image('avatar', trans('admin.avatar'));
             $form->password('password', trans('admin.password'))->rules('required|confirmed');
             $form->password('password_confirmation', trans('admin.password_confirmation'))->rules('required')
-                ->default(function ($form) {
-                    return $form->model()->password;
-                });
+                 ->default(function ($form) {
+                     return $form->model()->password;
+                 });
 
             $form->ignore(['password_confirmation']);
 

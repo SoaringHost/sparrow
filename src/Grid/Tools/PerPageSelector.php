@@ -1,9 +1,9 @@
 <?php
 
-namespace Encore\Admin\Grid\Tools;
+namespace StartupWrench\Admin\Grid\Tools;
 
-use Encore\Admin\Admin;
-use Encore\Admin\Grid;
+use StartupWrench\Admin\Admin;
+use StartupWrench\Admin\Grid;
 
 class PerPageSelector extends AbstractTool
 {
@@ -69,12 +69,12 @@ class PerPageSelector extends AbstractTool
 
         $options = $this->getOptions()->map(function ($option) {
             $selected = ($option == $this->perPage) ? 'selected' : '';
-            $url = app('request')->fullUrlWithQuery([$this->perPageName => $option]);
+            $url      = app('request')->fullUrlWithQuery([$this->perPageName => $option]);
 
             return "<option value=\"$url\" $selected>$option</option>";
         })->implode("\r\n");
 
-        $show = trans('admin.show');
+        $show    = trans('admin.show');
         $entries = trans('admin.entries');
 
         return <<<EOT

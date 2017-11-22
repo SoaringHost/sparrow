@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\Admin\Grid\Filter;
+namespace StartupWrench\Admin\Grid\Filter;
 
 class Where extends AbstractFilter
 {
@@ -29,9 +29,9 @@ class Where extends AbstractFilter
     {
         $this->where = $query;
 
-        $this->label = $this->formatLabel($label);
+        $this->label  = $this->formatLabel($label);
         $this->column = $column ?: static::getQueryHash($query, $this->label);
-        $this->id = $this->formatId($this->column);
+        $this->id     = $this->formatId($this->column);
 
         $this->setupDefaultPresenter();
     }
@@ -48,7 +48,7 @@ class Where extends AbstractFilter
     {
         $reflection = new \ReflectionFunction($closure);
 
-        return md5($reflection->getFileName().$reflection->getStartLine().$reflection->getEndLine().$label);
+        return md5($reflection->getFileName() . $reflection->getStartLine() . $reflection->getEndLine() . $label);
     }
 
     /**

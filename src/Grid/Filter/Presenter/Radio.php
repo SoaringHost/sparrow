@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Grid\Filter\Presenter;
+namespace StartupWrench\Admin\Grid\Filter\Presenter;
 
-use Encore\Admin\Facades\Admin;
+use StartupWrench\Admin\Facades\Admin;
 use Illuminate\Contracts\Support\Arrayable;
 
 class Radio extends Presenter
@@ -40,7 +40,7 @@ class Radio extends Presenter
      *
      * @return $this
      */
-    public function stacked() : self
+    public function stacked(): self
     {
         $this->inline = false;
 
@@ -57,13 +57,13 @@ class Radio extends Presenter
     /**
      * @return array
      */
-    public function variables() : array
+    public function variables(): array
     {
         $this->prepare();
 
         return [
             'options' => $this->options,
-            'inline'  => $this->inline,
+            'inline'  => $this->inline
         ];
     }
 }

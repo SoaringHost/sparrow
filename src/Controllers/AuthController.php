@@ -1,11 +1,11 @@
 <?php
 
-namespace Encore\Admin\Controllers;
+namespace StartupWrench\Admin\Controllers;
 
-use Encore\Admin\Auth\Database\Administrator;
-use Encore\Admin\Facades\Admin;
-use Encore\Admin\Form;
-use Encore\Admin\Layout\Content;
+use StartupWrench\Admin\Auth\Database\Administrator;
+use StartupWrench\Admin\Facades\Admin;
+use StartupWrench\Admin\Form;
+use StartupWrench\Admin\Layout\Content;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -39,7 +39,7 @@ class AuthController extends Controller
         $credentials = $request->only(['username', 'password']);
 
         $validator = Validator::make($credentials, [
-            'username' => 'required', 'password' => 'required',
+            'username' => 'required', 'password' => 'required'
         ]);
 
         if ($validator->fails()) {
@@ -112,9 +112,9 @@ class AuthController extends Controller
             $form->image('avatar', trans('admin.avatar'));
             $form->password('password', trans('admin.password'))->rules('confirmed|required');
             $form->password('password_confirmation', trans('admin.password_confirmation'))->rules('required')
-                ->default(function ($form) {
-                    return $form->model()->password;
-                });
+                 ->default(function ($form) {
+                     return $form->model()->password;
+                 });
 
             $form->setAction(admin_base_path('auth/setting'));
 
@@ -140,7 +140,7 @@ class AuthController extends Controller
     protected function getFailedLoginMessage()
     {
         return Lang::has('auth.failed')
-            ? trans('auth.failed')
-            : 'These credentials do not match our records.';
+        ? trans('auth.failed')
+        : 'These credentials do not match our records.';
     }
 }

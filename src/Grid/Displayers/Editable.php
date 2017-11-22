@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Grid\Displayers;
+namespace StartupWrench\Admin\Grid\Displayers;
 
-use Encore\Admin\Admin;
+use StartupWrench\Admin\Admin;
 
 class Editable extends AbstractDisplayer
 {
@@ -61,7 +61,7 @@ class Editable extends AbstractDisplayer
         foreach ($options as $key => $value) {
             $source[] = [
                 'value' => $key,
-                'text'  => $value,
+                'text'  => $value
             ];
         }
 
@@ -122,11 +122,14 @@ class Editable extends AbstractDisplayer
             'viewformat' => $format,
             'template'   => $format,
             'combodate'  => [
-                'maxYear' => 2035,
-            ],
+                'maxYear' => 2035
+            ]
         ]);
     }
 
+    /**
+     * @param array $arguments
+     */
     protected function buildEditableOptions(array $arguments = [])
     {
         $this->type = array_get($arguments, 0, 'text');
@@ -138,7 +141,7 @@ class Editable extends AbstractDisplayer
     {
         $this->options['name'] = $column = $this->column->getName();
 
-        $class = 'grid-editable-'.str_replace(['.', '#', '[', ']'], '-', $column);
+        $class = 'grid-editable-' . str_replace(['.', '#', '[', ']'], '-', $column);
 
         $this->buildEditableOptions(func_get_args());
 
@@ -152,7 +155,7 @@ class Editable extends AbstractDisplayer
             'data-type'  => $this->type,
             'data-pk'    => "{$this->getKey()}",
             'data-url'   => "{$this->grid->resource()}/{$this->getKey()}",
-            'data-value' => "{$this->value}",
+            'data-value' => "{$this->value}"
         ];
 
         $attributes = collect($attributes)->map(function ($attribute, $name) {

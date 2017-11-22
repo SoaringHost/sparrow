@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\Admin\Widgets;
+namespace StartupWrench\Admin\Widgets;
 
 use Illuminate\Contracts\Support\Renderable;
 
@@ -31,7 +31,7 @@ class InfoBox extends Widget implements Renderable
             'name' => $name,
             'icon' => $icon,
             'link' => $link,
-            'info' => $info,
+            'info' => $info
         ];
 
         $this->class("small-box bg-$color");

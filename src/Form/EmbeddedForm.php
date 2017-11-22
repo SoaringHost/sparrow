@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Form;
+namespace StartupWrench\Admin\Form;
 
-use Encore\Admin\Form;
+use StartupWrench\Admin\Form;
 use Illuminate\Support\Collection;
 
 /**
@@ -221,19 +221,19 @@ class EmbeddedForm
 
         if (is_array($jsonKey)) {
             foreach ($jsonKey as $index => $name) {
-                $elementName[$index] = "{$this->column}[$name]";
-                $errorKey[$index] = "{$this->column}.$name";
+                $elementName[$index]  = "{$this->column}[$name]";
+                $errorKey[$index]     = "{$this->column}.$name";
                 $elementClass[$index] = "{$this->column}_$name";
             }
         } else {
-            $elementName = "{$this->column}[$jsonKey]";
-            $errorKey = "{$this->column}.$jsonKey";
+            $elementName  = "{$this->column}[$jsonKey]";
+            $errorKey     = "{$this->column}.$jsonKey";
             $elementClass = "{$this->column}_$jsonKey";
         }
 
         $field->setElementName($elementName)
-            ->setErrorKey($errorKey)
-            ->setElementClass($elementClass);
+              ->setErrorKey($errorKey)
+              ->setElementClass($elementClass);
 
         return $field;
     }

@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Grid\Filter\Presenter;
+namespace StartupWrench\Admin\Grid\Filter\Presenter;
 
-use Encore\Admin\Grid\Filter\AbstractFilter;
+use StartupWrench\Admin\Grid\Filter\AbstractFilter;
 
 abstract class Presenter
 {
@@ -26,11 +26,11 @@ abstract class Presenter
      *
      * @return string
      */
-    public function view() : string
+    public function view(): string
     {
         $reflect = new \ReflectionClass(get_called_class());
 
-        return 'admin::filter.'.strtolower($reflect->getShortName());
+        return 'admin::filter.' . strtolower($reflect->getShortName());
     }
 
     /**
@@ -40,8 +40,7 @@ abstract class Presenter
      *
      * @return $this
      */
-    public function default($default)
-    {
+    function default($default) {
         $this->filter->default($default);
 
         return $this;
@@ -52,7 +51,7 @@ abstract class Presenter
      *
      * @return array
      */
-    public function variables() : array
+    public function variables(): array
     {
         return [];
     }

@@ -1,6 +1,6 @@
 <?php
 
-use Encore\Admin\Auth\Database\Administrator;
+use StartupWrench\Admin\Auth\Database\Administrator;
 use Illuminate\Support\Facades\File;
 use Tests\Models\Image;
 use Tests\Models\MultipleImage;
@@ -17,34 +17,37 @@ class ImageUploadTest extends TestCase
     public function testDisableFilter()
     {
         $this->visit('admin/images')
-            ->dontSeeElement('input[name=id]');
+             ->dontSeeElement('input[name=id]');
     }
 
     public function testImageUploadPage()
     {
         $this->visit('admin/images/create')
-            ->see('Upload image')
-            ->seeInElement('h3[class=box-title]', 'Create')
-            ->seeElement('input[name=image1]')
-            ->seeElement('input[name=image2]')
-            ->seeElement('input[name=image3]')
-            ->seeElement('input[name=image4]')
-            ->seeElement('input[name=image5]')
-            ->seeElement('input[name=image6]')
-            ->seeInElement('button[type=reset]', 'Reset')
-            ->seeInElement('button[type=submit]', 'Submit');
+             ->see('Upload image')
+             ->seeInElement('h3[class=box-title]', 'Create')
+             ->seeElement('input[name=image1]')
+             ->seeElement('input[name=image2]')
+             ->seeElement('input[name=image3]')
+             ->seeElement('input[name=image4]')
+             ->seeElement('input[name=image5]')
+             ->seeElement('input[name=image6]')
+             ->seeInElement('button[type=reset]', 'Reset')
+             ->seeInElement('button[type=submit]', 'Submit');
     }
 
+    /**
+     * @return mixed
+     */
     protected function uploadImages()
     {
         return $this->visit('admin/images/create')
-            ->attach(__DIR__.'/assets/test.jpg', 'image1')
-            ->attach(__DIR__.'/assets/test.jpg', 'image2')
-            ->attach(__DIR__.'/assets/test.jpg', 'image3')
-            ->attach(__DIR__.'/assets/test.jpg', 'image4')
-            ->attach(__DIR__.'/assets/test.jpg', 'image5')
-            ->attach(__DIR__.'/assets/test.jpg', 'image6')
-            ->press('Submit');
+                    ->attach(__DIR__ . '/assets/test.jpg', 'image1')
+                    ->attach(__DIR__ . '/assets/test.jpg', 'image2')
+                    ->attach(__DIR__ . '/assets/test.jpg', 'image3')
+                    ->attach(__DIR__ . '/assets/test.jpg', 'image4')
+                    ->attach(__DIR__ . '/assets/test.jpg', 'image5')
+                    ->attach(__DIR__ . '/assets/test.jpg', 'image6')
+                    ->press('Submit');
     }
 
     public function testUploadImage()
@@ -52,7 +55,7 @@ class ImageUploadTest extends TestCase
         File::cleanDirectory(public_path('uploads/images'));
 
         $this->uploadImages()
-            ->seePageIs('admin/images');
+             ->seePageIs('admin/images');
 
         $this->assertEquals(Image::count(), 1);
 
@@ -61,7 +64,7 @@ class ImageUploadTest extends TestCase
         $images = Image::first()->toArray();
 
         foreach (range(1, 6) as $index) {
-            $this->assertFileExists(public_path('uploads/'.$images['image'.$index]));
+            $this->assertFileExists(public_path('uploads/' . $images['image' . $index]));
         }
 
         $this->assertFileExists(public_path('uploads/images/asdasdasdasdasd.jpeg'));
@@ -87,22 +90,22 @@ class ImageUploadTest extends TestCase
         $old = Image::first();
 
         $this->visit('admin/images/1/edit')
-            ->see('ID')
-            ->see('Created At')
-            ->see('Updated At')
-            ->seeElement('input[name=image1]')
-            ->seeElement('input[name=image2]')
-            ->seeElement('input[name=image3]')
-            ->seeElement('input[name=image4]')
-            ->seeElement('input[name=image5]')
-            ->seeElement('input[name=image6]')
-            ->seeInElement('button[type=reset]', 'Reset')
-            ->seeInElement('button[type=submit]', 'Submit');
+             ->see('ID')
+             ->see('Created At')
+             ->see('Updated At')
+             ->seeElement('input[name=image1]')
+             ->seeElement('input[name=image2]')
+             ->seeElement('input[name=image3]')
+             ->seeElement('input[name=image4]')
+             ->seeElement('input[name=image5]')
+             ->seeElement('input[name=image6]')
+             ->seeInElement('button[type=reset]', 'Reset')
+             ->seeInElement('button[type=submit]', 'Submit');
 
-        $this->attach(__DIR__.'/assets/test.jpg', 'image3')
-            ->attach(__DIR__.'/assets/test.jpg', 'image4')
-            ->attach(__DIR__.'/assets/test.jpg', 'image5')
-            ->press('Submit');
+        $this->attach(__DIR__ . '/assets/test.jpg', 'image3')
+             ->attach(__DIR__ . '/assets/test.jpg', 'image4')
+             ->attach(__DIR__ . '/assets/test.jpg', 'image5')
+             ->press('Submit');
 
         $new = Image::first();
 
@@ -125,19 +128,19 @@ class ImageUploadTest extends TestCase
         $this->uploadImages();
 
         $this->visit('admin/images')
-            ->seeInElement('td', 1);
+             ->seeInElement('td', 1);
 
         $images = Image::first()->toArray();
 
         $this->delete('admin/images/1')
-            ->dontSeeInDatabase('test_images', ['id' => 1]);
+             ->dontSeeInDatabase('test_images', ['id' => 1]);
 
         foreach (range(1, 6) as $index) {
-            $this->assertFileNotExists(public_path('uploads/'.$images['image'.$index]));
+            $this->assertFileNotExists(public_path('uploads/' . $images['image' . $index]));
         }
 
         $this->visit('admin/images')
-            ->dontSeeInElement('td', 1);
+             ->dontSeeInElement('td', 1);
     }
 
     public function testBatchDelete()
@@ -149,9 +152,9 @@ class ImageUploadTest extends TestCase
         $this->uploadImages();
 
         $this->visit('admin/images')
-            ->seeInElement('td', 1)
-            ->seeInElement('td', 2)
-            ->seeInElement('td', 3);
+             ->seeInElement('td', 1)
+             ->seeInElement('td', 2)
+             ->seeInElement('td', 3);
 
         $this->assertEquals($this->fileCountInImageDir(), 18);
 
@@ -162,9 +165,9 @@ class ImageUploadTest extends TestCase
         $this->assertEquals(Image::count(), 0);
 
         $this->visit('admin/images')
-            ->dontSeeInElement('td', 1)
-            ->dontSeeInElement('td', 2)
-            ->dontSeeInElement('td', 3);
+             ->dontSeeInElement('td', 1)
+             ->dontSeeInElement('td', 2)
+             ->dontSeeInElement('td', 3);
 
         $this->assertEquals($this->fileCountInImageDir(), 0);
     }
@@ -174,15 +177,15 @@ class ImageUploadTest extends TestCase
         File::cleanDirectory(public_path('uploads/images'));
 
         $this->visit('admin/multiple-images/create')
-            ->seeElement('input[type=file][name="pictures[]"][multiple=1]');
+             ->seeElement('input[type=file][name="pictures[]"][multiple=1]');
 
-        $path = __DIR__.'/assets/test.jpg';
+        $path = __DIR__ . '/assets/test.jpg';
 
         $file = new \Illuminate\Http\UploadedFile(
             $path, 'test.jpg', 'image/jpeg', filesize($path), null, true
         );
 
-        $size = rand(10, 20);
+        $size  = rand(10, 20);
         $files = ['pictures' => array_pad([], $size, $file)];
 
         $this->call(
@@ -203,7 +206,7 @@ class ImageUploadTest extends TestCase
         $this->assertCount($size, $pictures);
 
         foreach ($pictures as $picture) {
-            $this->assertFileExists(public_path('uploads/'.$picture));
+            $this->assertFileExists(public_path('uploads/' . $picture));
         }
     }
 
@@ -212,13 +215,13 @@ class ImageUploadTest extends TestCase
         File::cleanDirectory(public_path('uploads/images'));
 
         // upload files
-        $path = __DIR__.'/assets/test.jpg';
+        $path = __DIR__ . '/assets/test.jpg';
 
         $file = new \Illuminate\Http\UploadedFile(
             $path, 'test.jpg', 'image/jpeg', filesize($path), null, true
         );
 
-        $size = rand(10, 20);
+        $size  = rand(10, 20);
         $files = ['pictures' => array_pad([], $size, $file)];
 
         $this->call(
@@ -232,6 +235,9 @@ class ImageUploadTest extends TestCase
         $this->assertEquals($this->fileCountInImageDir(), $size);
     }
 
+    /**
+     * @param $dir
+     */
     protected function fileCountInImageDir($dir = 'uploads/images')
     {
         $file = new FilesystemIterator(public_path($dir), FilesystemIterator::SKIP_DOTS);

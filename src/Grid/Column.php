@@ -1,10 +1,10 @@
 <?php
 
-namespace Encore\Admin\Grid;
+namespace StartupWrench\Admin\Grid;
 
 use Closure;
-use Encore\Admin\Grid;
-use Encore\Admin\Grid\Displayers\AbstractDisplayer;
+use StartupWrench\Admin\Grid;
+use StartupWrench\Admin\Grid\Displayers\AbstractDisplayer;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\URL;
@@ -260,7 +260,7 @@ class Column
      */
     public function setRelation($relation, $relationColumn = null)
     {
-        $this->relation = $relation;
+        $this->relation       = $relation;
         $this->relationColumn = $relationColumn;
 
         return $this;
@@ -324,7 +324,7 @@ class Column
     {
         foreach ($this->displayCallbacks as $callback) {
             $callback = $this->bindOriginalRow($callback, $key);
-            $value = call_user_func($callback, $value);
+            $value    = call_user_func($callback, $value);
         }
 
         return $value;
@@ -406,7 +406,7 @@ class Column
             throw new \Exception("Invalid column definition [$class]");
         }
 
-        $grid = $this->grid;
+        $grid   = $this->grid;
         $column = $this;
 
         $this->display(function ($value) use ($grid, $column, $class) {
@@ -458,7 +458,7 @@ class Column
         $query = app('request')->all();
         $query = array_merge($query, [$this->grid->model()->getSortName() => ['column' => $this->name, 'type' => $type]]);
 
-        $url = URL::current().'?'.http_build_query($query);
+        $url = URL::current() . '?' . http_build_query($query);
 
         return "<a class=\"fa fa-fw $icon\" href=\"$url\"></a>";
     }
@@ -536,7 +536,7 @@ class Column
         }
 
         if (class_exists($abstract) && is_subclass_of($abstract, AbstractDisplayer::class)) {
-            $grid = $this->grid;
+            $grid   = $this->grid;
             $column = $this;
 
             return $this->display(function ($value) use ($abstract, $grid, $column, $arguments) {
@@ -562,7 +562,7 @@ class Column
     public function __call($method, $arguments)
     {
         if ($this->isRelation() && !$this->relationColumn) {
-            $this->name = "{$this->relation}.$method";
+            $this->name  = "{$this->relation}.$method";
             $this->label = isset($arguments[0]) ? $arguments[0] : ucfirst($method);
 
             $this->relationColumn = $method;

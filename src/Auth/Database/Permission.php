@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\Admin\Auth\Database;
+namespace StartupWrench\Admin\Auth\Database;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -18,7 +18,7 @@ class Permission extends Model
      * @var array
      */
     public static $httpMethods = [
-        'GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS', 'HEAD',
+        'GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS', 'HEAD'
     ];
 
     /**
@@ -42,7 +42,7 @@ class Permission extends Model
      *
      * @return BelongsToMany
      */
-    public function roles() : BelongsToMany
+    public function roles(): BelongsToMany
     {
         $pivotTable = config('admin.database.role_permissions_table');
 
@@ -58,7 +58,7 @@ class Permission extends Model
      *
      * @return bool
      */
-    public function shouldPassThrough(Request $request) : bool
+    public function shouldPassThrough(Request $request): bool
     {
         if (empty($this->http_method) && empty($this->http_path)) {
             return true;
@@ -67,11 +67,11 @@ class Permission extends Model
         $method = $this->http_method;
 
         $matches = array_map(function ($path) use ($method) {
-            $path = trim(config('admin.route.prefix'), '/').$path;
+            $path = trim(config('admin.route.prefix'), '/') . $path;
 
             if (Str::contains($path, ':')) {
                 list($method, $path) = explode(':', $path);
-                $method = explode(',', $method);
+                $method              = explode(',', $method);
             }
 
             return compact('method', 'path');
@@ -94,7 +94,7 @@ class Permission extends Model
      *
      * @return bool
      */
-    protected function matchRequest(array $match, Request $request) : bool
+    protected function matchRequest(array $match, Request $request): bool
     {
         if (!$request->is(trim($match['path'], '/'))) {
             return false;

@@ -1,8 +1,11 @@
 <?php
 
-namespace Encore\Admin\Form\Field;
+namespace StartupWrench\Admin\Form\Field;
 
 class Year extends Date
 {
+    /**
+     * @var string
+     */
     protected $format = 'YYYY';
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\Admin\Widgets;
+namespace StartupWrench\Admin\Widgets;
 
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Contracts\Support\Renderable;
@@ -19,7 +19,7 @@ class Navbar implements Renderable
     {
         $this->elements = [
             'left'  => collect(),
-            'right' => collect(),
+            'right' => collect()
         ];
     }
 

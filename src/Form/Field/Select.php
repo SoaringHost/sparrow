@@ -1,20 +1,26 @@
 <?php
 
-namespace Encore\Admin\Form\Field;
+namespace StartupWrench\Admin\Form\Field;
 
-use Encore\Admin\Facades\Admin;
-use Encore\Admin\Form\Field;
+use StartupWrench\Admin\Facades\Admin;
+use StartupWrench\Admin\Form\Field;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Support\Str;
 
 class Select extends Field
 {
+    /**
+     * @var array
+     */
     protected static $css = [
-        '/vendor/laravel-admin/AdminLTE/plugins/select2/select2.min.css',
+        '/vendor/laravel-admin/AdminLTE/plugins/select2/select2.min.css'
     ];
 
+    /**
+     * @var array
+     */
     protected static $js = [
-        '/vendor/laravel-admin/AdminLTE/plugins/select2/select2.full.min.js',
+        '/vendor/laravel-admin/AdminLTE/plugins/select2/select2.full.min.js'
     ];
 
     public function render()
@@ -121,7 +127,7 @@ EOT;
     protected function loadOptionsFromRemote($url, $parameters = [], $options = [])
     {
         $ajaxOptions = [
-            'url' => $url.'?'.http_build_query($parameters),
+            'url' => $url . '?' . http_build_query($parameters)
         ];
 
         $ajaxOptions = json_encode(array_merge($ajaxOptions, $options));

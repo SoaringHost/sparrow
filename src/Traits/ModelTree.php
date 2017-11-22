@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\Admin\Traits;
+namespace StartupWrench\Admin\Traits;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
@@ -174,7 +174,7 @@ trait ModelTree
     public function allNodes()
     {
         $orderColumn = DB::getQueryGrammar()->wrap($this->orderColumn);
-        $byOrder = $orderColumn.' = 0,'.$orderColumn;
+        $byOrder     = $orderColumn . ' = 0,' . $orderColumn;
 
         $self = new static();
 
@@ -217,7 +217,7 @@ trait ModelTree
             $node = static::find($branch['id']);
 
             $node->{$node->getParentColumn()} = $parentId;
-            $node->{$node->getOrderColumn()} = static::$branchOrder[$branch['id']];
+            $node->{$node->getOrderColumn()}  = static::$branchOrder[$branch['id']];
             $node->save();
 
             if (isset($branch['children'])) {
@@ -258,9 +258,9 @@ trait ModelTree
         }
 
         foreach ($nodes as $node) {
-            $node[$this->titleColumn] = $prefix.'&nbsp;'.$node[$this->titleColumn];
+            $node[$this->titleColumn] = $prefix . '&nbsp;' . $node[$this->titleColumn];
             if ($node[$this->parentColumn] == $parentId) {
-                $children = $this->buildSelectOptions($nodes, $node[$this->getKeyName()], $prefix.$prefix);
+                $children = $this->buildSelectOptions($nodes, $node[$this->getKeyName()], $prefix . $prefix);
 
                 $options[$node[$this->getKeyName()]] = $node[$this->titleColumn];
 

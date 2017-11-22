@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\Admin\Form\Field;
+namespace StartupWrench\Admin\Form\Field;
 
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
@@ -38,6 +38,9 @@ class MultipleSelect extends Select
         throw new \Exception('Column of this field must be a `BelongsToMany` relation.');
     }
 
+    /**
+     * @param $data
+     */
     public function fill($data)
     {
         $relations = array_get($data, $this->column);
@@ -57,6 +60,9 @@ class MultipleSelect extends Select
         }
     }
 
+    /**
+     * @param $data
+     */
     public function setOriginal($data)
     {
         $relations = array_get($data, $this->column);
@@ -76,6 +82,9 @@ class MultipleSelect extends Select
         }
     }
 
+    /**
+     * @param $value
+     */
     public function prepare($value)
     {
         $value = (array) $value;

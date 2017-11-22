@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\Admin\Middleware;
+namespace StartupWrench\Admin\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
@@ -33,7 +33,7 @@ class Pjax
 
         try {
             $this->filterResponse($response, $request->header('X-PJAX-CONTAINER'))
-                ->setUriHeader($response, $request);
+                 ->setUriHeader($response, $request);
         } catch (\Exception $exception) {
         }
 
@@ -71,7 +71,7 @@ class Pjax
             'type'    => get_class($exception),
             'message' => $exception->getMessage(),
             'file'    => $exception->getFile(),
-            'line'    => $exception->getLine(),
+            'line'    => $exception->getLine()
         ]);
 
         return back()->withInput()->withErrors($error, 'exception');
@@ -90,7 +90,7 @@ class Pjax
         $crawler = new Crawler($response->getContent());
 
         $response->setContent(
-            $this->makeTitle($crawler).
+            $this->makeTitle($crawler) .
             $this->fetchContents($crawler, $container)
         );
 

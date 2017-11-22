@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\Admin\Console;
+namespace StartupWrench\Admin\Console;
 
 use Illuminate\Console\GeneratorCommand;
 use Symfony\Component\Console\Input\InputArgument;
@@ -81,10 +81,10 @@ class MakeCommand extends GeneratorCommand
     protected function getStub()
     {
         if ($this->option('model')) {
-            return __DIR__.'/stubs/controller.stub';
+            return __DIR__ . '/stubs/controller.stub';
         }
 
-        return __DIR__.'/stubs/blank.stub';
+        return __DIR__ . '/stubs/blank.stub';
     }
 
     /**
@@ -100,7 +100,7 @@ class MakeCommand extends GeneratorCommand
 
         $namespace = ucfirst(basename($directory));
 
-        return $rootNamespace."\\$namespace\Controllers";
+        return $rootNamespace . "\\$namespace\Controllers";
     }
 
     /**
@@ -111,7 +111,7 @@ class MakeCommand extends GeneratorCommand
     protected function getArguments()
     {
         return [
-            ['name', InputArgument::REQUIRED, 'The name of the controller.'],
+            ['name', InputArgument::REQUIRED, 'The name of the controller.']
         ];
     }
 
@@ -124,7 +124,7 @@ class MakeCommand extends GeneratorCommand
     {
         return [
             ['model', null, InputOption::VALUE_REQUIRED,
-                'The eloquent model that should be use as controller data source.', ],
+                'The eloquent model that should be use as controller data source.']
         ];
     }
 }

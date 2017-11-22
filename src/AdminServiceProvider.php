@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\Admin;
+namespace StartupWrench\Admin;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -10,11 +10,11 @@ class AdminServiceProvider extends ServiceProvider
      * @var array
      */
     protected $commands = [
-        'Encore\Admin\Console\MakeCommand',
-        'Encore\Admin\Console\MenuCommand',
-        'Encore\Admin\Console\InstallCommand',
-        'Encore\Admin\Console\UninstallCommand',
-        'Encore\Admin\Console\ImportCommand',
+        'StartupWrench\Admin\Console\MakeCommand',
+        'StartupWrench\Admin\Console\MenuCommand',
+        'StartupWrench\Admin\Console\InstallCommand',
+        'StartupWrench\Admin\Console\UninstallCommand',
+        'StartupWrench\Admin\Console\ImportCommand'
     ];
 
     /**
@@ -23,11 +23,11 @@ class AdminServiceProvider extends ServiceProvider
      * @var array
      */
     protected $routeMiddleware = [
-        'admin.auth'       => \Encore\Admin\Middleware\Authenticate::class,
-        'admin.pjax'       => \Encore\Admin\Middleware\Pjax::class,
-        'admin.log'        => \Encore\Admin\Middleware\LogOperation::class,
-        'admin.permission' => \Encore\Admin\Middleware\Permission::class,
-        'admin.bootstrap'  => \Encore\Admin\Middleware\Bootstrap::class,
+        'admin.auth'       => \StartupWrench\Admin\Middleware\Authenticate::class,
+        'admin.pjax'       => \StartupWrench\Admin\Middleware\Pjax::class,
+        'admin.log'        => \StartupWrench\Admin\Middleware\LogOperation::class,
+        'admin.permission' => \StartupWrench\Admin\Middleware\Permission::class,
+        'admin.bootstrap'  => \StartupWrench\Admin\Middleware\Bootstrap::class
     ];
 
     /**
@@ -41,8 +41,8 @@ class AdminServiceProvider extends ServiceProvider
             'admin.pjax',
             'admin.log',
             'admin.bootstrap',
-            'admin.permission',
-        ],
+            'admin.permission'
+        ]
     ];
 
     /**
@@ -52,18 +52,18 @@ class AdminServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->loadViewsFrom(__DIR__.'/../resources/views', 'admin');
+        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'admin');
 
         if (file_exists($routes = admin_path('routes.php'))) {
             $this->loadRoutesFrom($routes);
         }
 
         if ($this->app->runningInConsole()) {
-            $this->publishes([__DIR__.'/../config' => config_path()], 'laravel-admin-config');
-            $this->publishes([__DIR__.'/../resources/lang' => resource_path('lang')], 'laravel-admin-lang');
+            $this->publishes([__DIR__ . '/../config' => config_path()], 'laravel-admin-config');
+            $this->publishes([__DIR__ . '/../resources/lang' => resource_path('lang')], 'laravel-admin-lang');
 //            $this->publishes([__DIR__.'/../resources/views' => resource_path('views/admin')],           'laravel-admin-views');
-            $this->publishes([__DIR__.'/../database/migrations' => database_path('migrations')], 'laravel-admin-migrations');
-            $this->publishes([__DIR__.'/../resources/assets' => public_path('vendor/laravel-admin')], 'laravel-admin-assets');
+            $this->publishes([__DIR__ . '/../database/migrations' => database_path('migrations')], 'laravel-admin-migrations');
+            $this->publishes([__DIR__ . '/../resources/assets' => public_path('vendor/laravel-admin')], 'laravel-admin-assets');
         }
     }
 

@@ -1,11 +1,14 @@
 <?php
 
-namespace Encore\Admin\Grid\Displayers;
+namespace StartupWrench\Admin\Grid\Displayers;
 
-use Encore\Admin\Admin;
+use StartupWrench\Admin\Admin;
 
 class Select extends AbstractDisplayer
 {
+    /**
+     * @param array $options
+     */
     public function display($options = [])
     {
         $name = $this->column->getName();

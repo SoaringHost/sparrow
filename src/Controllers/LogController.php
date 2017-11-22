@@ -1,12 +1,12 @@
 <?php
 
-namespace Encore\Admin\Controllers;
+namespace StartupWrench\Admin\Controllers;
 
-use Encore\Admin\Auth\Database\Administrator;
-use Encore\Admin\Auth\Database\OperationLog;
-use Encore\Admin\Facades\Admin;
-use Encore\Admin\Grid;
-use Encore\Admin\Layout\Content;
+use StartupWrench\Admin\Auth\Database\Administrator;
+use StartupWrench\Admin\Auth\Database\OperationLog;
+use StartupWrench\Admin\Facades\Admin;
+use StartupWrench\Admin\Grid;
+use StartupWrench\Admin\Layout\Content;
 use Illuminate\Routing\Controller;
 
 class LogController extends Controller
@@ -41,7 +41,7 @@ class LogController extends Controller
                         return '<code>{}</code>';
                     }
 
-                    return '<pre>'.json_encode($input, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE).'</pre>';
+                    return '<pre>' . json_encode($input, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE) . '</pre>';
                 });
 
                 $grid->created_at(trans('admin.created_at'));
@@ -64,6 +64,9 @@ class LogController extends Controller
         });
     }
 
+    /**
+     * @param $id
+     */
     public function destroy($id)
     {
         $ids = explode(',', $id);
@@ -71,12 +74,12 @@ class LogController extends Controller
         if (OperationLog::destroy(array_filter($ids))) {
             return response()->json([
                 'status'  => true,
-                'message' => trans('admin.delete_succeeded'),
+                'message' => trans('admin.delete_succeeded')
             ]);
         } else {
             return response()->json([
                 'status'  => false,
-                'message' => trans('admin.delete_failed'),
+                'message' => trans('admin.delete_failed')
             ]);
         }
     }

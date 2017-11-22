@@ -1,15 +1,25 @@
 <?php
 
-namespace Encore\Admin\Form\Field;
+namespace StartupWrench\Admin\Form\Field;
 
-use Encore\Admin\Form;
+use StartupWrench\Admin\Form;
 
 class Captcha extends Text
 {
+    /**
+     * @var string
+     */
     protected $rules = 'required|captcha';
 
+    /**
+     * @var string
+     */
     protected $view = 'admin::form.captcha';
 
+    /**
+     * @param $column
+     * @param array $arguments
+     */
     public function __construct($column, $arguments = [])
     {
         if (!class_exists(\Mews\Captcha\Captcha::class)) {
@@ -17,9 +27,13 @@ class Captcha extends Text
         }
 
         $this->column = '__captcha__';
-        $this->label = trans('admin.captcha');
+        $this->label  = trans('admin.captcha');
     }
 
+    /**
+     * @param Form $form
+     * @return mixed
+     */
     public function setForm(Form $form = null)
     {
         $this->form = $form;

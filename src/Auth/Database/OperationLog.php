@@ -1,24 +1,33 @@
 <?php
 
-namespace Encore\Admin\Auth\Database;
+namespace StartupWrench\Admin\Auth\Database;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class OperationLog extends Model
 {
+    /**
+     * @var array
+     */
     protected $fillable = ['user_id', 'path', 'method', 'ip', 'input'];
 
+    /**
+     * @var array
+     */
     public static $methodColors = [
         'GET'    => 'green',
         'POST'   => 'yellow',
         'PUT'    => 'blue',
-        'DELETE' => 'red',
+        'DELETE' => 'red'
     ];
 
+    /**
+     * @var array
+     */
     public static $methods = [
         'GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH',
-        'LINK', 'UNLINK', 'COPY', 'HEAD', 'PURGE',
+        'LINK', 'UNLINK', 'COPY', 'HEAD', 'PURGE'
     ];
 
     /**
@@ -42,7 +51,7 @@ class OperationLog extends Model
      *
      * @return BelongsTo
      */
-    public function user() : BelongsTo
+    public function user(): BelongsTo
     {
         return $this->belongsTo(Administrator::class);
     }

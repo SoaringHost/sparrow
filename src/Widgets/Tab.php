@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\Admin\Widgets;
+namespace StartupWrench\Admin\Widgets;
 
 use Illuminate\Contracts\Support\Renderable;
 
@@ -19,7 +19,7 @@ class Tab extends Widget implements Renderable
         'title'    => '',
         'tabs'     => [],
         'dropDown' => [],
-        'active'   => 0,
+        'active'   => 0
     ];
 
     public function __construct()
@@ -40,7 +40,7 @@ class Tab extends Widget implements Renderable
         $this->data['tabs'][] = [
             'id'      => mt_rand(),
             'title'   => $title,
-            'content' => $content,
+            'content' => $content
         ];
 
         if ($active) {
@@ -79,7 +79,7 @@ class Tab extends Widget implements Renderable
 
         $this->data['dropDown'][] = [
             'name' => $links[0],
-            'href' => $links[1],
+            'href' => $links[1]
         ];
 
         return $this;

@@ -1,14 +1,14 @@
 <?php
 
-namespace Encore\Admin;
+namespace StartupWrench\Admin;
 
 use Closure;
-use Encore\Admin\Exception\Handler;
-use Encore\Admin\Form\Builder;
-use Encore\Admin\Form\Field;
-use Encore\Admin\Form\Field\File;
-use Encore\Admin\Form\Row;
-use Encore\Admin\Form\Tab;
+use StartupWrench\Admin\Exception\Handler;
+use StartupWrench\Admin\Form\Builder;
+use StartupWrench\Admin\Form\Field;
+use StartupWrench\Admin\Form\Field\File;
+use StartupWrench\Admin\Form\Row;
+use StartupWrench\Admin\Form\Tab;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Http\Request;
@@ -303,7 +303,7 @@ class Form
     protected function deleteFilesAndImages($id)
     {
         $data = $this->model->with($this->getRelations())
-            ->findOrFail($id)->toArray();
+                     ->findOrFail($id)->toArray();
 
         $this->builder->fields()->filter(function ($field) {
             return $field instanceof Field\File;
@@ -384,7 +384,7 @@ class Form
         if ($request->ajax() && !$request->pjax()) {
             return response()->json([
                 'status'  => true,
-                'message' => $message,
+                'message' => $message
             ]);
         }
 
@@ -509,7 +509,7 @@ class Form
         if ($this->handleOrderable($id, $data)) {
             return response([
                 'status'  => true,
-                'message' => trans('admin.update_succeeded'),
+                'message' => trans('admin.update_succeeded')
             ]);
         }
 
@@ -575,7 +575,7 @@ class Form
     protected function handleEditable(array $input = [])
     {
         if (array_key_exists('_editable', $input)) {
-            $name = $input['name'];
+            $name  = $input['name'];
             $value = $input['value'];
 
             array_forget($input, ['pk', 'value', 'name']);
@@ -642,7 +642,7 @@ class Form
             $relation = $this->model->$name();
 
             $oneToOneRelation = $relation instanceof \Illuminate\Database\Eloquent\Relations\HasOne
-                || $relation instanceof \Illuminate\Database\Eloquent\Relations\MorphOne;
+            || $relation instanceof \Illuminate\Database\Eloquent\Relations\MorphOne;
 
             $prepared = $this->prepareUpdate([$name => $values], $oneToOneRelation);
 
@@ -658,12 +658,11 @@ class Form
                     }
                     break;
                 case \Illuminate\Database\Eloquent\Relations\HasOne::class:
-
                     $related = $this->model->$name;
 
                     // if related is empty
                     if (is_null($related)) {
-                        $related = $relation->getRelated();
+                        $related                                   = $relation->getRelated();
                         $related->{$relation->getForeignKeyName()} = $this->model->{$this->model->getKeyName()};
                     }
 
@@ -1198,52 +1197,52 @@ class Form
     public static function registerBuiltinFields()
     {
         $map = [
-            'button'         => \Encore\Admin\Form\Field\Button::class,
-            'checkbox'       => \Encore\Admin\Form\Field\Checkbox::class,
-            'color'          => \Encore\Admin\Form\Field\Color::class,
-            'currency'       => \Encore\Admin\Form\Field\Currency::class,
-            'date'           => \Encore\Admin\Form\Field\Date::class,
-            'dateRange'      => \Encore\Admin\Form\Field\DateRange::class,
-            'datetime'       => \Encore\Admin\Form\Field\Datetime::class,
-            'dateTimeRange'  => \Encore\Admin\Form\Field\DatetimeRange::class,
-            'datetimeRange'  => \Encore\Admin\Form\Field\DatetimeRange::class,
-            'decimal'        => \Encore\Admin\Form\Field\Decimal::class,
-            'display'        => \Encore\Admin\Form\Field\Display::class,
-            'divider'        => \Encore\Admin\Form\Field\Divide::class,
-            'divide'         => \Encore\Admin\Form\Field\Divide::class,
-            'embeds'         => \Encore\Admin\Form\Field\Embeds::class,
-            'editor'         => \Encore\Admin\Form\Field\Editor::class,
-            'email'          => \Encore\Admin\Form\Field\Email::class,
-            'file'           => \Encore\Admin\Form\Field\File::class,
-            'hasMany'        => \Encore\Admin\Form\Field\HasMany::class,
-            'hidden'         => \Encore\Admin\Form\Field\Hidden::class,
-            'id'             => \Encore\Admin\Form\Field\Id::class,
-            'image'          => \Encore\Admin\Form\Field\Image::class,
-            'ip'             => \Encore\Admin\Form\Field\Ip::class,
-            'map'            => \Encore\Admin\Form\Field\Map::class,
-            'mobile'         => \Encore\Admin\Form\Field\Mobile::class,
-            'month'          => \Encore\Admin\Form\Field\Month::class,
-            'multipleSelect' => \Encore\Admin\Form\Field\MultipleSelect::class,
-            'number'         => \Encore\Admin\Form\Field\Number::class,
-            'password'       => \Encore\Admin\Form\Field\Password::class,
-            'radio'          => \Encore\Admin\Form\Field\Radio::class,
-            'rate'           => \Encore\Admin\Form\Field\Rate::class,
-            'select'         => \Encore\Admin\Form\Field\Select::class,
-            'slider'         => \Encore\Admin\Form\Field\Slider::class,
-            'switch'         => \Encore\Admin\Form\Field\SwitchField::class,
-            'text'           => \Encore\Admin\Form\Field\Text::class,
-            'textarea'       => \Encore\Admin\Form\Field\Textarea::class,
-            'time'           => \Encore\Admin\Form\Field\Time::class,
-            'timeRange'      => \Encore\Admin\Form\Field\TimeRange::class,
-            'url'            => \Encore\Admin\Form\Field\Url::class,
-            'year'           => \Encore\Admin\Form\Field\Year::class,
-            'html'           => \Encore\Admin\Form\Field\Html::class,
-            'tags'           => \Encore\Admin\Form\Field\Tags::class,
-            'icon'           => \Encore\Admin\Form\Field\Icon::class,
-            'multipleFile'   => \Encore\Admin\Form\Field\MultipleFile::class,
-            'multipleImage'  => \Encore\Admin\Form\Field\MultipleImage::class,
-            'captcha'        => \Encore\Admin\Form\Field\Captcha::class,
-            'listbox'        => \Encore\Admin\Form\Field\Listbox::class,
+            'button'         => \StartupWrench\Admin\Form\Field\Button::class,
+            'checkbox'       => \StartupWrench\Admin\Form\Field\Checkbox::class,
+            'color'          => \StartupWrench\Admin\Form\Field\Color::class,
+            'currency'       => \StartupWrench\Admin\Form\Field\Currency::class,
+            'date'           => \StartupWrench\Admin\Form\Field\Date::class,
+            'dateRange'      => \StartupWrench\Admin\Form\Field\DateRange::class,
+            'datetime'       => \StartupWrench\Admin\Form\Field\Datetime::class,
+            'dateTimeRange'  => \StartupWrench\Admin\Form\Field\DatetimeRange::class,
+            'datetimeRange'  => \StartupWrench\Admin\Form\Field\DatetimeRange::class,
+            'decimal'        => \StartupWrench\Admin\Form\Field\Decimal::class,
+            'display'        => \StartupWrench\Admin\Form\Field\Display::class,
+            'divider'        => \StartupWrench\Admin\Form\Field\Divide::class,
+            'divide'         => \StartupWrench\Admin\Form\Field\Divide::class,
+            'embeds'         => \StartupWrench\Admin\Form\Field\Embeds::class,
+            'editor'         => \StartupWrench\Admin\Form\Field\Editor::class,
+            'email'          => \StartupWrench\Admin\Form\Field\Email::class,
+            'file'           => \StartupWrench\Admin\Form\Field\File::class,
+            'hasMany'        => \StartupWrench\Admin\Form\Field\HasMany::class,
+            'hidden'         => \StartupWrench\Admin\Form\Field\Hidden::class,
+            'id'             => \StartupWrench\Admin\Form\Field\Id::class,
+            'image'          => \StartupWrench\Admin\Form\Field\Image::class,
+            'ip'             => \StartupWrench\Admin\Form\Field\Ip::class,
+            'map'            => \StartupWrench\Admin\Form\Field\Map::class,
+            'mobile'         => \StartupWrench\Admin\Form\Field\Mobile::class,
+            'month'          => \StartupWrench\Admin\Form\Field\Month::class,
+            'multipleSelect' => \StartupWrench\Admin\Form\Field\MultipleSelect::class,
+            'number'         => \StartupWrench\Admin\Form\Field\Number::class,
+            'password'       => \StartupWrench\Admin\Form\Field\Password::class,
+            'radio'          => \StartupWrench\Admin\Form\Field\Radio::class,
+            'rate'           => \StartupWrench\Admin\Form\Field\Rate::class,
+            'select'         => \StartupWrench\Admin\Form\Field\Select::class,
+            'slider'         => \StartupWrench\Admin\Form\Field\Slider::class,
+            'switch'         => \StartupWrench\Admin\Form\Field\SwitchField::class,
+            'text'           => \StartupWrench\Admin\Form\Field\Text::class,
+            'textarea'       => \StartupWrench\Admin\Form\Field\Textarea::class,
+            'time'           => \StartupWrench\Admin\Form\Field\Time::class,
+            'timeRange'      => \StartupWrench\Admin\Form\Field\TimeRange::class,
+            'url'            => \StartupWrench\Admin\Form\Field\Url::class,
+            'year'           => \StartupWrench\Admin\Form\Field\Year::class,
+            'html'           => \StartupWrench\Admin\Form\Field\Html::class,
+            'tags'           => \StartupWrench\Admin\Form\Field\Tags::class,
+            'icon'           => \StartupWrench\Admin\Form\Field\Icon::class,
+            'multipleFile'   => \StartupWrench\Admin\Form\Field\MultipleFile::class,
+            'multipleImage'  => \StartupWrench\Admin\Form\Field\MultipleImage::class,
+            'captcha'        => \StartupWrench\Admin\Form\Field\Captcha::class,
+            'listbox'        => \StartupWrench\Admin\Form\Field\Listbox::class
         ];
 
         foreach ($map as $abstract => $class) {
@@ -1304,7 +1303,7 @@ class Form
         }
 
         $css = collect();
-        $js = collect();
+        $js  = collect();
 
         foreach (static::$availableFields as $field) {
             if (!method_exists($field, 'getAssets')) {
@@ -1319,7 +1318,7 @@ class Form
 
         return static::$collectedAssets = [
             'css' => $css->flatten()->unique()->filter()->toArray(),
-            'js'  => $js->flatten()->unique()->filter()->toArray(),
+            'js'  => $js->flatten()->unique()->filter()->toArray()
         ];
     }
 

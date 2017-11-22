@@ -1,16 +1,22 @@
 <?php
 
-namespace Encore\Admin\Grid\Displayers;
+namespace StartupWrench\Admin\Grid\Displayers;
 
-use Encore\Admin\Admin;
+use StartupWrench\Admin\Admin;
 
 class SwitchDisplay extends AbstractDisplayer
 {
+    /**
+     * @var array
+     */
     protected $states = [
         'on'  => ['value' => 1, 'text' => 'ON', 'color' => 'primary'],
-        'off' => ['value' => 0, 'text' => 'OFF', 'color' => 'default'],
+        'off' => ['value' => 0, 'text' => 'OFF', 'color' => 'default']
     ];
 
+    /**
+     * @param $states
+     */
     protected function updateStates($states)
     {
         foreach (array_dot($states) as $key => $state) {
@@ -18,6 +24,9 @@ class SwitchDisplay extends AbstractDisplayer
         }
     }
 
+    /**
+     * @param array $states
+     */
     public function display($states = [])
     {
         $this->updateStates($states);

@@ -1,9 +1,9 @@
 <?php
 
-namespace Encore\Admin\Form;
+namespace StartupWrench\Admin\Form;
 
-use Encore\Admin\Admin;
-use Encore\Admin\Form;
+use StartupWrench\Admin\Admin;
+use StartupWrench\Admin\Form;
 use Illuminate\Support\Collection;
 
 /**
@@ -84,7 +84,7 @@ class NestedForm
     protected $original = [];
 
     /**
-     * @var \Encore\Admin\Form
+     * @var \StartupWrench\Admin\Form
      */
     protected $form;
 
@@ -217,7 +217,7 @@ class NestedForm
                 $value = $field->prepare($value);
             }
 
-            if (($field instanceof \Encore\Admin\Form\Field\Hidden) || $value != $field->original()) {
+            if (($field instanceof \StartupWrench\Admin\Form\Field\Hidden) || $value != $field->original()) {
                 if (is_array($columns)) {
                     foreach ($columns as $name => $column) {
                         array_set($prepared, $column, $value[$name]);
@@ -306,12 +306,11 @@ class NestedForm
      */
     public function getTemplateHtmlAndScript()
     {
-        $html = '';
+        $html    = '';
         $scripts = [];
 
         /* @var Field $field */
         foreach ($this->fields() as $field) {
-
             //when field render, will push $script to Admin
             $html .= $field->render();
 
@@ -339,23 +338,23 @@ class NestedForm
 
         $elementName = $elementClass = $errorKey = [];
 
-        $key = $this->key ?: 'new_'.static::DEFAULT_KEY_NAME;
+        $key = $this->key ?: 'new_' . static::DEFAULT_KEY_NAME;
 
         if (is_array($column)) {
             foreach ($column as $k => $name) {
-                $errorKey[$k] = sprintf('%s.%s.%s', $this->relationName, $key, $name);
-                $elementName[$k] = sprintf('%s[%s][%s]', $this->relationName, $key, $name);
+                $errorKey[$k]     = sprintf('%s.%s.%s', $this->relationName, $key, $name);
+                $elementName[$k]  = sprintf('%s[%s][%s]', $this->relationName, $key, $name);
                 $elementClass[$k] = [$this->relationName, $name];
             }
         } else {
-            $errorKey = sprintf('%s.%s.%s', $this->relationName, $key, $column);
-            $elementName = sprintf('%s[%s][%s]', $this->relationName, $key, $column);
+            $errorKey     = sprintf('%s.%s.%s', $this->relationName, $key, $column);
+            $elementName  = sprintf('%s[%s][%s]', $this->relationName, $key, $column);
             $elementClass = [$this->relationName, $column];
         }
 
         return $field->setErrorKey($errorKey)
-            ->setElementName($elementName)
-            ->setElementClass($elementClass);
+                     ->setElementName($elementName)
+                     ->setElementClass($elementClass);
     }
 
     /**

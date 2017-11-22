@@ -1,9 +1,9 @@
 <?php
 
-namespace Encore\Admin\Form\Field;
+namespace StartupWrench\Admin\Form\Field;
 
-use Encore\Admin\Form\EmbeddedForm;
-use Encore\Admin\Form\Field;
+use StartupWrench\Admin\Form\EmbeddedForm;
+use StartupWrench\Admin\Form\Field;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 
@@ -25,7 +25,7 @@ class Embeds extends Field
         $this->column = $column;
 
         if (count($arguments) == 1) {
-            $this->label = $this->formatLabel();
+            $this->label   = $this->formatLabel();
             $this->builder = $arguments[0];
         }
 
@@ -146,7 +146,7 @@ class Embeds extends Field
 
         if (is_array($column)) {
             foreach ($column as $index => $col) {
-                $new[$col.$index] = $col;
+                $new[$col . $index] = $col;
             }
         }
 
@@ -158,7 +158,7 @@ class Embeds extends Field
             } else {
                 foreach ($new as $k => $val) {
                     if (Str::endsWith($key, ".$k")) {
-                        $attributes[$key] = $label."[$val]";
+                        $attributes[$key] = $label . "[$val]";
                     }
                 }
             }
@@ -184,7 +184,7 @@ class Embeds extends Field
                 continue;
             }
 
-            $newKey = $key.$column[$key];
+            $newKey = $key . $column[$key];
 
             /*
              * set new key

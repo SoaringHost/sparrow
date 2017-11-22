@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Widgets;
+namespace StartupWrench\Admin\Widgets;
 
-use Encore\Admin\Form\Field;
+use StartupWrench\Admin\Form\Field;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Contracts\Support\Renderable;
 
@@ -91,7 +91,7 @@ class Form implements Renderable
             'action'         => '',
             'class'          => 'form-horizontal',
             'accept-charset' => 'UTF-8',
-            'pjax-container' => true,
+            'pjax-container' => true
         ];
     }
 
@@ -179,7 +179,7 @@ class Form implements Renderable
      */
     public static function findFieldClass($method)
     {
-        $class = array_get(\Encore\Admin\Form::$availableFields, $method);
+        $class = array_get(\StartupWrench\Admin\Form::$availableFields, $method);
 
         if (class_exists($class)) {
             return $class;
@@ -215,7 +215,7 @@ class Form implements Renderable
 
         return [
             'fields'     => $this->fields,
-            'attributes' => $this->formatAttribute(),
+            'attributes' => $this->formatAttribute()
         ];
     }
 

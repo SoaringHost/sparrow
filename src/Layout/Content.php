@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\Admin\Layout;
+namespace StartupWrench\Admin\Layout;
 
 use Closure;
 use Illuminate\Contracts\Support\Renderable;
@@ -156,7 +156,7 @@ class Content implements Renderable
         $items = [
             'header'      => $this->header,
             'description' => $this->description,
-            'content'     => $this->build(),
+            'content'     => $this->build()
         ];
 
         return view('admin::content', $items)->render();

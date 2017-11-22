@@ -1,6 +1,6 @@
 <?php
 
-namespace Encore\Admin\Widgets;
+namespace StartupWrench\Admin\Widgets;
 
 use Illuminate\Contracts\Support\Renderable;
 
@@ -117,10 +117,10 @@ class Box extends Widget implements Renderable
         }
 
         $styles = array_map(function ($style) {
-            return 'box-'.$style;
+            return 'box-' . $style;
         }, $styles);
 
-        $this->class = $this->class.' '.implode(' ', $styles);
+        $this->class = $this->class . ' ' . implode(' ', $styles);
 
         return $this;
     }
@@ -146,7 +146,7 @@ class Box extends Widget implements Renderable
             'title'      => $this->title,
             'content'    => $this->content,
             'tools'      => $this->tools,
-            'attributes' => $this->formatAttributes(),
+            'attributes' => $this->formatAttributes()
         ];
     }
 

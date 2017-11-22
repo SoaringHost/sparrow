@@ -1,8 +1,8 @@
 <?php
 
-namespace Encore\Admin\Grid\Filter\Presenter;
+namespace StartupWrench\Admin\Grid\Filter\Presenter;
 
-use Encore\Admin\Facades\Admin;
+use StartupWrench\Admin\Facades\Admin;
 use Illuminate\Contracts\Support\Arrayable;
 
 class Select extends Presenter
@@ -29,7 +29,7 @@ class Select extends Presenter
      *
      * @return array
      */
-    protected function buildOptions() : array
+    protected function buildOptions(): array
     {
         if (is_string($this->options)) {
             $this->loadAjaxOptions($this->options);
@@ -110,18 +110,18 @@ EOT;
     /**
      * @return array
      */
-    public function variables() : array
+    public function variables(): array
     {
         return [
             'options' => $this->buildOptions(),
-            'class'   => $this->getElementClass(),
+            'class'   => $this->getElementClass()
         ];
     }
 
     /**
      * @return string
      */
-    protected function getElementClass() : string
+    protected function getElementClass(): string
     {
         return str_replace('.', '_', $this->filter->getColumn());
     }
@@ -136,7 +136,7 @@ EOT;
      *
      * @return $this
      */
-    public function load($target, $resourceUrl, $idField = 'id', $textField = 'text') : self
+    public function load($target, $resourceUrl, $idField = 'id', $textField = 'text'): self
     {
         $column = $this->filter->getColumn();
 
@@ -152,7 +152,7 @@ $(document).on('change', ".{$this->getClass($column)}", function () {
                 text : item.$textField
             }));
         });
-        
+
         $(target).trigger('change');
     });
 });
@@ -170,7 +170,7 @@ EOT;
      *
      * @return mixed
      */
-    protected function getClass($target) : string
+    protected function getClass($target): string
     {
         return str_replace('.', '_', $target);
     }
