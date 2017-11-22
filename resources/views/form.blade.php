@@ -39,7 +39,7 @@
         <!-- /.box-body -->
         <div class="box-footer">
 
-            @if( ! $form->isMode(\StartupWrench\Admin\Form\Builder::MODE_VIEW)  || ! $form->option('enableSubmit'))
+            @if( ! $form->isMode(\SoaringHost\Admin\Form\Builder::MODE_VIEW)  || ! $form->option('enableSubmit'))
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
             @endif
             <div class="col-md-{{$width['label']}}">

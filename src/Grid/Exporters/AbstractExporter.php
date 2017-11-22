@@ -1,13 +1,13 @@
 <?php
 
-namespace StartupWrench\Admin\Grid\Exporters;
+namespace SoaringHost\Admin\Grid\Exporters;
 
-use StartupWrench\Admin\Grid;
+use SoaringHost\Admin\Grid;
 
 abstract class AbstractExporter implements ExporterInterface
 {
     /**
-     * @var \StartupWrench\Admin\Grid
+     * @var \SoaringHost\Admin\Grid
      */
     protected $grid;
 

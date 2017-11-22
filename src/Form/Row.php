@@ -1,8 +1,8 @@
 <?php
 
-namespace StartupWrench\Admin\Form;
+namespace SoaringHost\Admin\Form;
 
-use StartupWrench\Admin\Form;
+use SoaringHost\Admin\Form;
 use Illuminate\Contracts\Support\Renderable;
 
 class Row implements Renderable

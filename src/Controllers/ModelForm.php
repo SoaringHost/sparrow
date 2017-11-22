@@ -1,6 +1,6 @@
 <?php
 
-namespace StartupWrench\Admin\Controllers;
+namespace SoaringHost\Admin\Controllers;
 
 trait ModelForm
 {

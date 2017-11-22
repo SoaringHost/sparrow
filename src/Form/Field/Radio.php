@@ -1,8 +1,8 @@
 <?php
 
-namespace StartupWrench\Admin\Form\Field;
+namespace SoaringHost\Admin\Form\Field;
 
-use StartupWrench\Admin\Form\Field;
+use SoaringHost\Admin\Form\Field;
 use Illuminate\Contracts\Support\Arrayable;
 
 class Radio extends Field

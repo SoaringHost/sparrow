@@ -1,8 +1,8 @@
 <?php
 
-namespace StartupWrench\Admin\Middleware;
+namespace SoaringHost\Admin\Middleware;
 
-use StartupWrench\Admin\Facades\Admin;
+use SoaringHost\Admin\Facades\Admin;
 use Illuminate\Http\Request;
 
 class Permission
@@ -24,7 +24,7 @@ class Permission
         if (!Admin::user()->allPermissions()->first(function ($permission) use ($request) {
             return $permission->shouldPassThrough($request);
         })) {
-            \StartupWrench\Admin\Auth\Permission::error();
+            \SoaringHost\Admin\Auth\Permission::error();
         }
 
         return $next($request);

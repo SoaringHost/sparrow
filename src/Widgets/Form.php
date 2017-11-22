@@ -1,8 +1,8 @@
 <?php
 
-namespace StartupWrench\Admin\Widgets;
+namespace SoaringHost\Admin\Widgets;
 
-use StartupWrench\Admin\Form\Field;
+use SoaringHost\Admin\Form\Field;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Contracts\Support\Renderable;
 
@@ -179,7 +179,7 @@ class Form implements Renderable
      */
     public static function findFieldClass($method)
     {
-        $class = array_get(\StartupWrench\Admin\Form::$availableFields, $method);
+        $class = array_get(\SoaringHost\Admin\Form::$availableFields, $method);
 
         if (class_exists($class)) {
             return $class;

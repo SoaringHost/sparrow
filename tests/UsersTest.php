@@ -1,6 +1,6 @@
 <?php
 
-use StartupWrench\Admin\Auth\Database\Administrator;
+use SoaringHost\Admin\Auth\Database\Administrator;
 
 class UsersTest extends TestCase
 {

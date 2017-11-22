@@ -1,8 +1,8 @@
 <?php
 
-namespace StartupWrench\Admin\Grid\Displayers;
+namespace SoaringHost\Admin\Grid\Displayers;
 
-use StartupWrench\Admin\Facades\Admin;
+use SoaringHost\Admin\Facades\Admin;
 use Illuminate\Support\Arr;
 
 class SwitchGroup extends AbstractDisplayer

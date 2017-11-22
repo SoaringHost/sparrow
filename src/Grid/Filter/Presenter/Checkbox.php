@@ -1,8 +1,8 @@
 <?php
 
-namespace StartupWrench\Admin\Grid\Filter\Presenter;
+namespace SoaringHost\Admin\Grid\Filter\Presenter;
 
-use StartupWrench\Admin\Facades\Admin;
+use SoaringHost\Admin\Facades\Admin;
 
 class Checkbox extends Radio
 {

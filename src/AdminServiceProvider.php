@@ -1,6 +1,6 @@
 <?php
 
-namespace StartupWrench\Admin;
+namespace SoaringHost\Admin;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -10,11 +10,11 @@ class AdminServiceProvider extends ServiceProvider
      * @var array
      */
     protected $commands = [
-        'StartupWrench\Admin\Console\MakeCommand',
-        'StartupWrench\Admin\Console\MenuCommand',
-        'StartupWrench\Admin\Console\InstallCommand',
-        'StartupWrench\Admin\Console\UninstallCommand',
-        'StartupWrench\Admin\Console\ImportCommand'
+        'SoaringHost\Admin\Console\MakeCommand',
+        'SoaringHost\Admin\Console\MenuCommand',
+        'SoaringHost\Admin\Console\InstallCommand',
+        'SoaringHost\Admin\Console\UninstallCommand',
+        'SoaringHost\Admin\Console\ImportCommand'
     ];
 
     /**
@@ -23,11 +23,11 @@ class AdminServiceProvider extends ServiceProvider
      * @var array
      */
     protected $routeMiddleware = [
-        'admin.auth'       => \StartupWrench\Admin\Middleware\Authenticate::class,
-        'admin.pjax'       => \StartupWrench\Admin\Middleware\Pjax::class,
-        'admin.log'        => \StartupWrench\Admin\Middleware\LogOperation::class,
-        'admin.permission' => \StartupWrench\Admin\Middleware\Permission::class,
-        'admin.bootstrap'  => \StartupWrench\Admin\Middleware\Bootstrap::class
+        'admin.auth'       => \SoaringHost\Admin\Middleware\Authenticate::class,
+        'admin.pjax'       => \SoaringHost\Admin\Middleware\Pjax::class,
+        'admin.log'        => \SoaringHost\Admin\Middleware\LogOperation::class,
+        'admin.permission' => \SoaringHost\Admin\Middleware\Permission::class,
+        'admin.bootstrap'  => \SoaringHost\Admin\Middleware\Bootstrap::class
     ];
 
     /**

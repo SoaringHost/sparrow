@@ -1,17 +1,17 @@
 <?php
 
-namespace StartupWrench\Admin;
+namespace SoaringHost\Admin;
 
 use Closure;
-use StartupWrench\Admin\Exception\Handler;
-use StartupWrench\Admin\Grid\Column;
-use StartupWrench\Admin\Grid\Displayers\Actions;
-use StartupWrench\Admin\Grid\Displayers\RowSelector;
-use StartupWrench\Admin\Grid\Exporter;
-use StartupWrench\Admin\Grid\Filter;
-use StartupWrench\Admin\Grid\Model;
-use StartupWrench\Admin\Grid\Row;
-use StartupWrench\Admin\Grid\Tools;
+use SoaringHost\Admin\Exception\Handler;
+use SoaringHost\Admin\Grid\Column;
+use SoaringHost\Admin\Grid\Displayers\Actions;
+use SoaringHost\Admin\Grid\Displayers\RowSelector;
+use SoaringHost\Admin\Grid\Exporter;
+use SoaringHost\Admin\Grid\Filter;
+use SoaringHost\Admin\Grid\Model;
+use SoaringHost\Admin\Grid\Row;
+use SoaringHost\Admin\Grid\Tools;
 use Illuminate\Database\Eloquent\Model as Eloquent;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -29,7 +29,7 @@ class Grid
     /**
      * The grid data model instance.
      *
-     * @var \StartupWrench\Admin\Grid\Model
+     * @var \SoaringHost\Admin\Grid\Model
      */
     protected $model;
 
@@ -92,7 +92,7 @@ class Grid
     /**
      * The grid Filter.
      *
-     * @var \StartupWrench\Admin\Grid\Filter
+     * @var \SoaringHost\Admin\Grid\Filter
      */
     protected $filter;
 
@@ -895,19 +895,19 @@ class Grid
     public static function registerColumnDisplayer()
     {
         $map = [
-            'editable'    => \StartupWrench\Admin\Grid\Displayers\Editable::class,
-            'switch'      => \StartupWrench\Admin\Grid\Displayers\SwitchDisplay::class,
-            'switchGroup' => \StartupWrench\Admin\Grid\Displayers\SwitchGroup::class,
-            'select'      => \StartupWrench\Admin\Grid\Displayers\Select::class,
-            'image'       => \StartupWrench\Admin\Grid\Displayers\Image::class,
-            'label'       => \StartupWrench\Admin\Grid\Displayers\Label::class,
-            'button'      => \StartupWrench\Admin\Grid\Displayers\Button::class,
-            'link'        => \StartupWrench\Admin\Grid\Displayers\Link::class,
-            'badge'       => \StartupWrench\Admin\Grid\Displayers\Badge::class,
-            'progressBar' => \StartupWrench\Admin\Grid\Displayers\ProgressBar::class,
-            'radio'       => \StartupWrench\Admin\Grid\Displayers\Radio::class,
-            'checkbox'    => \StartupWrench\Admin\Grid\Displayers\Checkbox::class,
-            'orderable'   => \StartupWrench\Admin\Grid\Displayers\Orderable::class
+            'editable'    => \SoaringHost\Admin\Grid\Displayers\Editable::class,
+            'switch'      => \SoaringHost\Admin\Grid\Displayers\SwitchDisplay::class,
+            'switchGroup' => \SoaringHost\Admin\Grid\Displayers\SwitchGroup::class,
+            'select'      => \SoaringHost\Admin\Grid\Displayers\Select::class,
+            'image'       => \SoaringHost\Admin\Grid\Displayers\Image::class,
+            'label'       => \SoaringHost\Admin\Grid\Displayers\Label::class,
+            'button'      => \SoaringHost\Admin\Grid\Displayers\Button::class,
+            'link'        => \SoaringHost\Admin\Grid\Displayers\Link::class,
+            'badge'       => \SoaringHost\Admin\Grid\Displayers\Badge::class,
+            'progressBar' => \SoaringHost\Admin\Grid\Displayers\ProgressBar::class,
+            'radio'       => \SoaringHost\Admin\Grid\Displayers\Radio::class,
+            'checkbox'    => \SoaringHost\Admin\Grid\Displayers\Checkbox::class,
+            'orderable'   => \SoaringHost\Admin\Grid\Displayers\Orderable::class
         ];
 
         foreach ($map as $abstract => $class) {

@@ -1,8 +1,8 @@
 <?php
 
-namespace StartupWrench\Admin\Grid\Filter\Presenter;
+namespace SoaringHost\Admin\Grid\Filter\Presenter;
 
-use StartupWrench\Admin\Grid\Filter\AbstractFilter;
+use SoaringHost\Admin\Grid\Filter\AbstractFilter;
 
 abstract class Presenter
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace StartupWrench\Admin\Grid;
+namespace SoaringHost\Admin\Grid;
 
 class Row
 {

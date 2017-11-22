@@ -1,6 +1,6 @@
 <?php
 
-namespace StartupWrench\Admin\Layout;
+namespace SoaringHost\Admin\Layout;
 
 use Illuminate\Contracts\Support\Renderable;
 

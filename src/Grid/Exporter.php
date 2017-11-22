@@ -1,9 +1,9 @@
 <?php
 
-namespace StartupWrench\Admin\Grid;
+namespace SoaringHost\Admin\Grid;
 
-use StartupWrench\Admin\Grid;
-use StartupWrench\Admin\Grid\Exporters\CsvExporter;
+use SoaringHost\Admin\Grid;
+use SoaringHost\Admin\Grid\Exporters\CsvExporter;
 
 class Exporter
 {

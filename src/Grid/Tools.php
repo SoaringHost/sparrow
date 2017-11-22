@@ -1,11 +1,11 @@
 <?php
 
-namespace StartupWrench\Admin\Grid;
+namespace SoaringHost\Admin\Grid;
 
-use StartupWrench\Admin\Grid;
-use StartupWrench\Admin\Grid\Tools\AbstractTool;
-use StartupWrench\Admin\Grid\Tools\BatchActions;
-use StartupWrench\Admin\Grid\Tools\RefreshButton;
+use SoaringHost\Admin\Grid;
+use SoaringHost\Admin\Grid\Tools\AbstractTool;
+use SoaringHost\Admin\Grid\Tools\BatchActions;
+use SoaringHost\Admin\Grid\Tools\RefreshButton;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Collection;
 

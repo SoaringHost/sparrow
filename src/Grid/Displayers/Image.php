@@ -1,6 +1,6 @@
 <?php
 
-namespace StartupWrench\Admin\Grid\Displayers;
+namespace SoaringHost\Admin\Grid\Displayers;
 
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Support\Facades\Storage;

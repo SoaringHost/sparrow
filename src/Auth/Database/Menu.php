@@ -1,9 +1,9 @@
 <?php
 
-namespace StartupWrench\Admin\Auth\Database;
+namespace SoaringHost\Admin\Auth\Database;
 
-use StartupWrench\Admin\Traits\AdminBuilder;
-use StartupWrench\Admin\Traits\ModelTree;
+use SoaringHost\Admin\Traits\AdminBuilder;
+use SoaringHost\Admin\Traits\ModelTree;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Support\Facades\DB;

@@ -1,6 +1,6 @@
 <?php
 
-namespace StartupWrench\Admin\Exception;
+namespace SoaringHost\Admin\Exception;
 
 use Illuminate\Support\MessageBag;
 use Illuminate\Support\ViewErrorBag;

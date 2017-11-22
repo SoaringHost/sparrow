@@ -1,6 +1,6 @@
 <?php
 
-namespace StartupWrench\Admin\Auth\Database;
+namespace SoaringHost\Admin\Auth\Database;
 
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Support\Collection;

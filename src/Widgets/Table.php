@@ -1,6 +1,6 @@
 <?php
 
-namespace StartupWrench\Admin\Widgets;
+namespace SoaringHost\Admin\Widgets;
 
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Arr;

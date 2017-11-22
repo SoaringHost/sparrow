@@ -1,12 +1,12 @@
 <?php
 
-namespace StartupWrench\Admin\Controllers;
+namespace SoaringHost\Admin\Controllers;
 
-use StartupWrench\Admin\Auth\Database\Permission;
-use StartupWrench\Admin\Facades\Admin;
-use StartupWrench\Admin\Form;
-use StartupWrench\Admin\Grid;
-use StartupWrench\Admin\Layout\Content;
+use SoaringHost\Admin\Auth\Database\Permission;
+use SoaringHost\Admin\Facades\Admin;
+use SoaringHost\Admin\Form;
+use SoaringHost\Admin\Grid;
+use SoaringHost\Admin\Layout\Content;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Str;
 

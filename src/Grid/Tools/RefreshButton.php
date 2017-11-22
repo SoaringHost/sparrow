@@ -1,8 +1,8 @@
 <?php
 
-namespace StartupWrench\Admin\Grid\Tools;
+namespace SoaringHost\Admin\Grid\Tools;
 
-use StartupWrench\Admin\Admin;
+use SoaringHost\Admin\Admin;
 
 class RefreshButton extends AbstractTool
 {

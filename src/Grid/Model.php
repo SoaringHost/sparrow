@@ -1,8 +1,8 @@
 <?php
 
-namespace StartupWrench\Admin\Grid;
+namespace SoaringHost\Admin\Grid;
 
-use StartupWrench\Admin\Middleware\Pjax;
+use SoaringHost\Admin\Middleware\Pjax;
 use Illuminate\Database\Eloquent\Model as EloquentModel;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;

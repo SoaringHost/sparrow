@@ -3,7 +3,7 @@
 namespace DummyNamespace;
 
 use App\Http\Controllers\Controller;
-use StartupWrench\Admin\Controllers\ModelForm;
+use SoaringHost\Admin\Controllers\ModelForm;
 
 class DummyClass extends Controller
 {

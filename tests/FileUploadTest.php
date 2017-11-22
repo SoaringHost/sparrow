@@ -1,6 +1,6 @@
 <?php
 
-use StartupWrench\Admin\Auth\Database\Administrator;
+use SoaringHost\Admin\Auth\Database\Administrator;
 use Illuminate\Support\Facades\File;
 use Tests\Models\File as FileModel;
 

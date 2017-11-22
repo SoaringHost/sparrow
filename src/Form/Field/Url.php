@@ -1,6 +1,6 @@
 <?php
 
-namespace StartupWrench\Admin\Form\Field;
+namespace SoaringHost\Admin\Form\Field;
 
 class Url extends Text
 {

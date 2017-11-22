@@ -1,9 +1,9 @@
 <?php
 
-namespace StartupWrench\Admin\Middleware;
+namespace SoaringHost\Admin\Middleware;
 
-use StartupWrench\Admin\Form;
-use StartupWrench\Admin\Grid;
+use SoaringHost\Admin\Form;
+use SoaringHost\Admin\Grid;
 use Illuminate\Http\Request;
 
 class Bootstrap

@@ -1,6 +1,6 @@
 <?php
 
-namespace StartupWrench\Admin\Layout;
+namespace SoaringHost\Admin\Layout;
 
 use Closure;
 use Illuminate\Contracts\Support\Renderable;

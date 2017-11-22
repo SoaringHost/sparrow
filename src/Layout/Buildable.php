@@ -1,6 +1,6 @@
 <?php
 
-namespace StartupWrench\Admin\Layout;
+namespace SoaringHost\Admin\Layout;
 
 interface Buildable
 {

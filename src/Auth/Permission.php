@@ -1,9 +1,9 @@
 <?php
 
-namespace StartupWrench\Admin\Auth;
+namespace SoaringHost\Admin\Auth;
 
-use StartupWrench\Admin\Facades\Admin;
-use StartupWrench\Admin\Middleware\Pjax;
+use SoaringHost\Admin\Facades\Admin;
+use SoaringHost\Admin\Middleware\Pjax;
 use Illuminate\Support\Facades\Auth;
 
 class Permission

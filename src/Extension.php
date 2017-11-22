@@ -1,9 +1,9 @@
 <?php
 
-namespace StartupWrench\Admin;
+namespace SoaringHost\Admin;
 
-use StartupWrench\Admin\Auth\Database\Menu;
-use StartupWrench\Admin\Auth\Database\Permission;
+use SoaringHost\Admin\Auth\Database\Menu;
+use SoaringHost\Admin\Auth\Database\Permission;
 use Illuminate\Support\Facades\Route;
 
 abstract class Extension

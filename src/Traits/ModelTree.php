@@ -1,6 +1,6 @@
 <?php
 
-namespace StartupWrench\Admin\Traits;
+namespace SoaringHost\Admin\Traits;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;

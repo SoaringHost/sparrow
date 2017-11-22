@@ -1,9 +1,9 @@
 <?php
 
-namespace StartupWrench\Admin\Form;
+namespace SoaringHost\Admin\Form;
 
-use StartupWrench\Admin\Admin;
-use StartupWrench\Admin\Form;
+use SoaringHost\Admin\Admin;
+use SoaringHost\Admin\Form;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Str;

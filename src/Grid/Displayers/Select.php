@@ -1,8 +1,8 @@
 <?php
 
-namespace StartupWrench\Admin\Grid\Displayers;
+namespace SoaringHost\Admin\Grid\Displayers;
 
-use StartupWrench\Admin\Admin;
+use SoaringHost\Admin\Admin;
 
 class Select extends AbstractDisplayer
 {

@@ -1,10 +1,10 @@
 <?php
 
-namespace StartupWrench\Admin\Traits;
+namespace SoaringHost\Admin\Traits;
 
-use StartupWrench\Admin\Form;
-use StartupWrench\Admin\Grid;
-use StartupWrench\Admin\Tree;
+use SoaringHost\Admin\Form;
+use SoaringHost\Admin\Grid;
+use SoaringHost\Admin\Tree;
 
 trait AdminBuilder
 {

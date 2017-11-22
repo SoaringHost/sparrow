@@ -1,9 +1,9 @@
 <?php
 
-namespace StartupWrench\Admin;
+namespace SoaringHost\Admin;
 
 use Closure;
-use StartupWrench\Admin\Tree\Tools;
+use SoaringHost\Admin\Tree\Tools;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Database\Eloquent\Model;
 

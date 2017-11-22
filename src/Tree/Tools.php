@@ -1,8 +1,8 @@
 <?php
 
-namespace StartupWrench\Admin\Tree;
+namespace SoaringHost\Admin\Tree;
 
-use StartupWrench\Admin\Tree;
+use SoaringHost\Admin\Tree;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Support\Collection;

@@ -1,6 +1,6 @@
 <?php
 
-namespace StartupWrench\Admin\Grid\Tools;
+namespace SoaringHost\Admin\Grid\Tools;
 
 class BatchDelete extends BatchAction
 {

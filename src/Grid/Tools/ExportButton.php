@@ -1,9 +1,9 @@
 <?php
 
-namespace StartupWrench\Admin\Grid\Tools;
+namespace SoaringHost\Admin\Grid\Tools;
 
-use StartupWrench\Admin\Admin;
-use StartupWrench\Admin\Grid;
+use SoaringHost\Admin\Admin;
+use SoaringHost\Admin\Grid;
 
 class ExportButton extends AbstractTool
 {

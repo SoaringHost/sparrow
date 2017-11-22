@@ -1,8 +1,8 @@
 <?php
 
-namespace StartupWrench\Admin\Form\Field;
+namespace SoaringHost\Admin\Form\Field;
 
-use StartupWrench\Admin\Form;
+use SoaringHost\Admin\Form;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\MessageBag;

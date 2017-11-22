@@ -1,6 +1,6 @@
 <?php
 
-namespace StartupWrench\Admin\Grid\Exporters;
+namespace SoaringHost\Admin\Grid\Exporters;
 
 interface ExporterInterface
 {

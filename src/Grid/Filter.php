@@ -1,9 +1,9 @@
 <?php
 
-namespace StartupWrench\Admin\Grid;
+namespace SoaringHost\Admin\Grid;
 
-use StartupWrench\Admin\Facades\Admin;
-use StartupWrench\Admin\Grid\Filter\AbstractFilter;
+use SoaringHost\Admin\Facades\Admin;
+use SoaringHost\Admin\Grid\Filter\AbstractFilter;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Request;
 
@@ -258,7 +258,7 @@ EOT;
     public function __call($method, $arguments)
     {
         if (in_array($method, $this->supports)) {
-            $className = '\\StartupWrench\\Admin\\Grid\\Filter\\' . ucfirst($method);
+            $className = '\\SoaringHost\\Admin\\Grid\\Filter\\' . ucfirst($method);
 
             return $this->addFilter(new $className(...$arguments));
         }

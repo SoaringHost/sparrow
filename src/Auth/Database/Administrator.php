@@ -1,8 +1,8 @@
 <?php
 
-namespace StartupWrench\Admin\Auth\Database;
+namespace SoaringHost\Admin\Auth\Database;
 
-use StartupWrench\Admin\Traits\AdminBuilder;
+use SoaringHost\Admin\Traits\AdminBuilder;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Database\Eloquent\Model;

@@ -1,14 +1,14 @@
 <?php
 
-namespace StartupWrench\Admin;
+namespace SoaringHost\Admin;
 
 use Closure;
-use StartupWrench\Admin\Exception\Handler;
-use StartupWrench\Admin\Form\Builder;
-use StartupWrench\Admin\Form\Field;
-use StartupWrench\Admin\Form\Field\File;
-use StartupWrench\Admin\Form\Row;
-use StartupWrench\Admin\Form\Tab;
+use SoaringHost\Admin\Exception\Handler;
+use SoaringHost\Admin\Form\Builder;
+use SoaringHost\Admin\Form\Field;
+use SoaringHost\Admin\Form\Field\File;
+use SoaringHost\Admin\Form\Row;
+use SoaringHost\Admin\Form\Tab;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Http\Request;
@@ -1197,52 +1197,52 @@ class Form
     public static function registerBuiltinFields()
     {
         $map = [
-            'button'         => \StartupWrench\Admin\Form\Field\Button::class,
-            'checkbox'       => \StartupWrench\Admin\Form\Field\Checkbox::class,
-            'color'          => \StartupWrench\Admin\Form\Field\Color::class,
-            'currency'       => \StartupWrench\Admin\Form\Field\Currency::class,
-            'date'           => \StartupWrench\Admin\Form\Field\Date::class,
-            'dateRange'      => \StartupWrench\Admin\Form\Field\DateRange::class,
-            'datetime'       => \StartupWrench\Admin\Form\Field\Datetime::class,
-            'dateTimeRange'  => \StartupWrench\Admin\Form\Field\DatetimeRange::class,
-            'datetimeRange'  => \StartupWrench\Admin\Form\Field\DatetimeRange::class,
-            'decimal'        => \StartupWrench\Admin\Form\Field\Decimal::class,
-            'display'        => \StartupWrench\Admin\Form\Field\Display::class,
-            'divider'        => \StartupWrench\Admin\Form\Field\Divide::class,
-            'divide'         => \StartupWrench\Admin\Form\Field\Divide::class,
-            'embeds'         => \StartupWrench\Admin\Form\Field\Embeds::class,
-            'editor'         => \StartupWrench\Admin\Form\Field\Editor::class,
-            'email'          => \StartupWrench\Admin\Form\Field\Email::class,
-            'file'           => \StartupWrench\Admin\Form\Field\File::class,
-            'hasMany'        => \StartupWrench\Admin\Form\Field\HasMany::class,
-            'hidden'         => \StartupWrench\Admin\Form\Field\Hidden::class,
-            'id'             => \StartupWrench\Admin\Form\Field\Id::class,
-            'image'          => \StartupWrench\Admin\Form\Field\Image::class,
-            'ip'             => \StartupWrench\Admin\Form\Field\Ip::class,
-            'map'            => \StartupWrench\Admin\Form\Field\Map::class,
-            'mobile'         => \StartupWrench\Admin\Form\Field\Mobile::class,
-            'month'          => \StartupWrench\Admin\Form\Field\Month::class,
-            'multipleSelect' => \StartupWrench\Admin\Form\Field\MultipleSelect::class,
-            'number'         => \StartupWrench\Admin\Form\Field\Number::class,
-            'password'       => \StartupWrench\Admin\Form\Field\Password::class,
-            'radio'          => \StartupWrench\Admin\Form\Field\Radio::class,
-            'rate'           => \StartupWrench\Admin\Form\Field\Rate::class,
-            'select'         => \StartupWrench\Admin\Form\Field\Select::class,
-            'slider'         => \StartupWrench\Admin\Form\Field\Slider::class,
-            'switch'         => \StartupWrench\Admin\Form\Field\SwitchField::class,
-            'text'           => \StartupWrench\Admin\Form\Field\Text::class,
-            'textarea'       => \StartupWrench\Admin\Form\Field\Textarea::class,
-            'time'           => \StartupWrench\Admin\Form\Field\Time::class,
-            'timeRange'      => \StartupWrench\Admin\Form\Field\TimeRange::class,
-            'url'            => \StartupWrench\Admin\Form\Field\Url::class,
-            'year'           => \StartupWrench\Admin\Form\Field\Year::class,
-            'html'           => \StartupWrench\Admin\Form\Field\Html::class,
-            'tags'           => \StartupWrench\Admin\Form\Field\Tags::class,
-            'icon'           => \StartupWrench\Admin\Form\Field\Icon::class,
-            'multipleFile'   => \StartupWrench\Admin\Form\Field\MultipleFile::class,
-            'multipleImage'  => \StartupWrench\Admin\Form\Field\MultipleImage::class,
-            'captcha'        => \StartupWrench\Admin\Form\Field\Captcha::class,
-            'listbox'        => \StartupWrench\Admin\Form\Field\Listbox::class
+            'button'         => \SoaringHost\Admin\Form\Field\Button::class,
+            'checkbox'       => \SoaringHost\Admin\Form\Field\Checkbox::class,
+            'color'          => \SoaringHost\Admin\Form\Field\Color::class,
+            'currency'       => \SoaringHost\Admin\Form\Field\Currency::class,
+            'date'           => \SoaringHost\Admin\Form\Field\Date::class,
+            'dateRange'      => \SoaringHost\Admin\Form\Field\DateRange::class,
+            'datetime'       => \SoaringHost\Admin\Form\Field\Datetime::class,
+            'dateTimeRange'  => \SoaringHost\Admin\Form\Field\DatetimeRange::class,
+            'datetimeRange'  => \SoaringHost\Admin\Form\Field\DatetimeRange::class,
+            'decimal'        => \SoaringHost\Admin\Form\Field\Decimal::class,
+            'display'        => \SoaringHost\Admin\Form\Field\Display::class,
+            'divider'        => \SoaringHost\Admin\Form\Field\Divide::class,
+            'divide'         => \SoaringHost\Admin\Form\Field\Divide::class,
+            'embeds'         => \SoaringHost\Admin\Form\Field\Embeds::class,
+            'editor'         => \SoaringHost\Admin\Form\Field\Editor::class,
+            'email'          => \SoaringHost\Admin\Form\Field\Email::class,
+            'file'           => \SoaringHost\Admin\Form\Field\File::class,
+            'hasMany'        => \SoaringHost\Admin\Form\Field\HasMany::class,
+            'hidden'         => \SoaringHost\Admin\Form\Field\Hidden::class,
+            'id'             => \SoaringHost\Admin\Form\Field\Id::class,
+            'image'          => \SoaringHost\Admin\Form\Field\Image::class,
+            'ip'             => \SoaringHost\Admin\Form\Field\Ip::class,
+            'map'            => \SoaringHost\Admin\Form\Field\Map::class,
+            'mobile'         => \SoaringHost\Admin\Form\Field\Mobile::class,
+            'month'          => \SoaringHost\Admin\Form\Field\Month::class,
+            'multipleSelect' => \SoaringHost\Admin\Form\Field\MultipleSelect::class,
+            'number'         => \SoaringHost\Admin\Form\Field\Number::class,
+            'password'       => \SoaringHost\Admin\Form\Field\Password::class,
+            'radio'          => \SoaringHost\Admin\Form\Field\Radio::class,
+            'rate'           => \SoaringHost\Admin\Form\Field\Rate::class,
+            'select'         => \SoaringHost\Admin\Form\Field\Select::class,
+            'slider'         => \SoaringHost\Admin\Form\Field\Slider::class,
+            'switch'         => \SoaringHost\Admin\Form\Field\SwitchField::class,
+            'text'           => \SoaringHost\Admin\Form\Field\Text::class,
+            'textarea'       => \SoaringHost\Admin\Form\Field\Textarea::class,
+            'time'           => \SoaringHost\Admin\Form\Field\Time::class,
+            'timeRange'      => \SoaringHost\Admin\Form\Field\TimeRange::class,
+            'url'            => \SoaringHost\Admin\Form\Field\Url::class,
+            'year'           => \SoaringHost\Admin\Form\Field\Year::class,
+            'html'           => \SoaringHost\Admin\Form\Field\Html::class,
+            'tags'           => \SoaringHost\Admin\Form\Field\Tags::class,
+            'icon'           => \SoaringHost\Admin\Form\Field\Icon::class,
+            'multipleFile'   => \SoaringHost\Admin\Form\Field\MultipleFile::class,
+            'multipleImage'  => \SoaringHost\Admin\Form\Field\MultipleImage::class,
+            'captcha'        => \SoaringHost\Admin\Form\Field\Captcha::class,
+            'listbox'        => \SoaringHost\Admin\Form\Field\Listbox::class
         ];
 
         foreach ($map as $abstract => $class) {

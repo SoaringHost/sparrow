@@ -1,6 +1,6 @@
 <?php
 
-use StartupWrench\Admin\Auth\Database\Administrator;
+use SoaringHost\Admin\Auth\Database\Administrator;
 use Illuminate\Support\Facades\File;
 
 class UserSettingTest extends TestCase

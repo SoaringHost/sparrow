@@ -1,6 +1,6 @@
 <?php
 
-namespace StartupWrench\Admin\Middleware;
+namespace SoaringHost\Admin\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;

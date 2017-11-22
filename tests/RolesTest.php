@@ -1,7 +1,7 @@
 <?php
 
-use StartupWrench\Admin\Auth\Database\Administrator;
-use StartupWrench\Admin\Auth\Database\Role;
+use SoaringHost\Admin\Auth\Database\Administrator;
+use SoaringHost\Admin\Auth\Database\Role;
 
 class RolesTest extends TestCase
 {

@@ -3,11 +3,11 @@
 namespace Tests\Controllers;
 
 use App\Http\Controllers\Controller;
-use StartupWrench\Admin\Controllers\ModelForm;
-use StartupWrench\Admin\Facades\Admin;
-use StartupWrench\Admin\Form;
-use StartupWrench\Admin\Grid;
-use StartupWrench\Admin\Layout\Content;
+use SoaringHost\Admin\Controllers\ModelForm;
+use SoaringHost\Admin\Facades\Admin;
+use SoaringHost\Admin\Form;
+use SoaringHost\Admin\Grid;
+use SoaringHost\Admin\Layout\Content;
 use Tests\Models\Image;
 
 class ImageController extends Controller

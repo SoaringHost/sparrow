@@ -1,6 +1,6 @@
 <?php
 
-use StartupWrench\Admin\Auth\Database\Administrator;
+use SoaringHost\Admin\Auth\Database\Administrator;
 use Tests\Models\User as UserModel;
 
 class UserFormTest extends TestCase

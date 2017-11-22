@@ -1,8 +1,8 @@
 <?php
 
-namespace StartupWrench\Admin\Grid\Tools;
+namespace SoaringHost\Admin\Grid\Tools;
 
-use StartupWrench\Admin\Grid;
+use SoaringHost\Admin\Grid;
 use Illuminate\Contracts\Support\Renderable;
 
 abstract class AbstractTool implements Renderable

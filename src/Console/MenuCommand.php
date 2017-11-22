@@ -1,8 +1,8 @@
 <?php
 
-namespace StartupWrench\Admin\Console;
+namespace SoaringHost\Admin\Console;
 
-use StartupWrench\Admin\Facades\Admin;
+use SoaringHost\Admin\Facades\Admin;
 use Illuminate\Console\Command;
 
 class MenuCommand extends Command

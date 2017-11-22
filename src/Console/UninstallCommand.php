@@ -1,6 +1,6 @@
 <?php
 
-namespace StartupWrench\Admin\Console;
+namespace SoaringHost\Admin\Console;
 
 use Illuminate\Console\Command;
 

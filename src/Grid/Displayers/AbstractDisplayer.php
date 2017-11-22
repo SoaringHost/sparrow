@@ -1,9 +1,9 @@
 <?php
 
-namespace StartupWrench\Admin\Grid\Displayers;
+namespace SoaringHost\Admin\Grid\Displayers;
 
-use StartupWrench\Admin\Grid;
-use StartupWrench\Admin\Grid\Column;
+use SoaringHost\Admin\Grid;
+use SoaringHost\Admin\Grid\Column;
 
 abstract class AbstractDisplayer
 {

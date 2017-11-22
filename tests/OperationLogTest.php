@@ -1,7 +1,7 @@
 <?php
 
-use StartupWrench\Admin\Auth\Database\Administrator;
-use StartupWrench\Admin\Auth\Database\OperationLog;
+use SoaringHost\Admin\Auth\Database\Administrator;
+use SoaringHost\Admin\Auth\Database\OperationLog;
 
 class OperationLogTest extends TestCase
 {

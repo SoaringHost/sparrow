@@ -1,8 +1,8 @@
 <?php
 
-namespace StartupWrench\Admin\Grid\Filter;
+namespace SoaringHost\Admin\Grid\Filter;
 
-use StartupWrench\Admin\Admin;
+use SoaringHost\Admin\Admin;
 
 class Between extends AbstractFilter
 {

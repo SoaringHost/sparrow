@@ -1,12 +1,12 @@
 <?php
 
-namespace StartupWrench\Admin\Controllers;
+namespace SoaringHost\Admin\Controllers;
 
-use StartupWrench\Admin\Auth\Database\Administrator;
-use StartupWrench\Admin\Auth\Database\OperationLog;
-use StartupWrench\Admin\Facades\Admin;
-use StartupWrench\Admin\Grid;
-use StartupWrench\Admin\Layout\Content;
+use SoaringHost\Admin\Auth\Database\Administrator;
+use SoaringHost\Admin\Auth\Database\OperationLog;
+use SoaringHost\Admin\Facades\Admin;
+use SoaringHost\Admin\Grid;
+use SoaringHost\Admin\Layout\Content;
 use Illuminate\Routing\Controller;
 
 class LogController extends Controller

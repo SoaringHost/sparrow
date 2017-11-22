@@ -1,15 +1,15 @@
 <?php
 
-namespace StartupWrench\Admin\Grid\Filter;
+namespace SoaringHost\Admin\Grid\Filter;
 
-use StartupWrench\Admin\Grid\Filter;
-use StartupWrench\Admin\Grid\Filter\Presenter\Checkbox;
-use StartupWrench\Admin\Grid\Filter\Presenter\DateTime;
-use StartupWrench\Admin\Grid\Filter\Presenter\MultipleSelect;
-use StartupWrench\Admin\Grid\Filter\Presenter\Presenter;
-use StartupWrench\Admin\Grid\Filter\Presenter\Radio;
-use StartupWrench\Admin\Grid\Filter\Presenter\Select;
-use StartupWrench\Admin\Grid\Filter\Presenter\Text;
+use SoaringHost\Admin\Grid\Filter;
+use SoaringHost\Admin\Grid\Filter\Presenter\Checkbox;
+use SoaringHost\Admin\Grid\Filter\Presenter\DateTime;
+use SoaringHost\Admin\Grid\Filter\Presenter\MultipleSelect;
+use SoaringHost\Admin\Grid\Filter\Presenter\Presenter;
+use SoaringHost\Admin\Grid\Filter\Presenter\Radio;
+use SoaringHost\Admin\Grid\Filter\Presenter\Select;
+use SoaringHost\Admin\Grid\Filter\Presenter\Text;
 
 /**
  * Class AbstractFilter.

@@ -1,16 +1,16 @@
 <?php
 
-namespace StartupWrench\Admin\Controllers;
+namespace SoaringHost\Admin\Controllers;
 
-use StartupWrench\Admin\Auth\Database\Menu;
-use StartupWrench\Admin\Auth\Database\Role;
-use StartupWrench\Admin\Facades\Admin;
-use StartupWrench\Admin\Form;
-use StartupWrench\Admin\Layout\Column;
-use StartupWrench\Admin\Layout\Content;
-use StartupWrench\Admin\Layout\Row;
-use StartupWrench\Admin\Tree;
-use StartupWrench\Admin\Widgets\Box;
+use SoaringHost\Admin\Auth\Database\Menu;
+use SoaringHost\Admin\Auth\Database\Role;
+use SoaringHost\Admin\Facades\Admin;
+use SoaringHost\Admin\Form;
+use SoaringHost\Admin\Layout\Column;
+use SoaringHost\Admin\Layout\Content;
+use SoaringHost\Admin\Layout\Row;
+use SoaringHost\Admin\Tree;
+use SoaringHost\Admin\Widgets\Box;
 use Illuminate\Routing\Controller;
 
 class MenuController extends Controller
@@ -32,7 +32,7 @@ class MenuController extends Controller
                 $row->column(6, $this->treeView()->render());
 
                 $row->column(6, function (Column $column) {
-                    $form = new \StartupWrench\Admin\Widgets\Form();
+                    $form = new \SoaringHost\Admin\Widgets\Form();
                     $form->action(admin_base_path('auth/menu'));
 
                     $form->select('parent_id', trans('admin.parent_id'))->options(Menu::selectOptions());
@@ -60,7 +60,7 @@ class MenuController extends Controller
     }
 
     /**
-     * @return \StartupWrench\Admin\Tree
+     * @return \SoaringHost\Admin\Tree
      */
     protected function treeView()
     {

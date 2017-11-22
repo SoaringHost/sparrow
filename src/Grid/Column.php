@@ -1,10 +1,10 @@
 <?php
 
-namespace StartupWrench\Admin\Grid;
+namespace SoaringHost\Admin\Grid;
 
 use Closure;
-use StartupWrench\Admin\Grid;
-use StartupWrench\Admin\Grid\Displayers\AbstractDisplayer;
+use SoaringHost\Admin\Grid;
+use SoaringHost\Admin\Grid\Displayers\AbstractDisplayer;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\URL;

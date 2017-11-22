@@ -1,11 +1,11 @@
 <?php
 
-namespace StartupWrench\Admin;
+namespace SoaringHost\Admin;
 
 use Closure;
-use StartupWrench\Admin\Auth\Database\Menu;
-use StartupWrench\Admin\Layout\Content;
-use StartupWrench\Admin\Widgets\Navbar;
+use SoaringHost\Admin\Auth\Database\Menu;
+use SoaringHost\Admin\Layout\Content;
+use SoaringHost\Admin\Widgets\Navbar;
 use Illuminate\Database\Eloquent\Model as EloquentModel;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
@@ -46,7 +46,7 @@ class Admin
      * @param $model
      * @param Closure $callable
      *
-     * @return \StartupWrench\Admin\Grid
+     * @return \SoaringHost\Admin\Grid
      */
     public function grid($model, Closure $callable)
     {
@@ -57,7 +57,7 @@ class Admin
      * @param $model
      * @param Closure $callable
      *
-     * @return \StartupWrench\Admin\Form
+     * @return \SoaringHost\Admin\Form
      */
     public function form($model, Closure $callable)
     {
@@ -69,7 +69,7 @@ class Admin
      *
      * @param $model
      *
-     * @return \StartupWrench\Admin\Tree
+     * @return \SoaringHost\Admin\Tree
      */
     public function tree($model, Closure $callable = null)
     {
@@ -79,7 +79,7 @@ class Admin
     /**
      * @param Closure $callable
      *
-     * @return \StartupWrench\Admin\Layout\Content
+     * @return \SoaringHost\Admin\Layout\Content
      */
     public function content(Closure $callable = null)
     {
@@ -211,7 +211,7 @@ class Admin
     /**
      * Get navbar object.
      *
-     * @return \StartupWrench\Admin\Widgets\Navbar
+     * @return \SoaringHost\Admin\Widgets\Navbar
      */
     public function getNavbar()
     {
@@ -231,7 +231,7 @@ class Admin
     {
         $attributes = [
             'prefix'     => config('admin.route.prefix'),
-            'namespace'  => 'StartupWrench\Admin\Controllers',
+            'namespace'  => 'SoaringHost\Admin\Controllers',
             'middleware' => config('admin.route.middleware')
         ];
 

@@ -1,13 +1,13 @@
 {
-    "name": "patrickcurl/hummingbird",
-    "description": "Hummingbird",
+    "name": "soaringhost/sparrow",
+    "description": "Sparrow",
     "type": "library",
     "keywords": ["laravel", "admin", "grid", "form"],
-    "homepage": "https://github.com/patrickcurl/hummingbird",
+    "homepage": "https://github.com/soaringhost/sparrow",
     "license": "MIT",
     "authors": [
         {
-            "name": "patrickcurl",
+            "name": "soaringhost",
             "email": "patrickwcurl@gmail.com"
         }
     ],
@@ -26,7 +26,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Hummingbird\\Admin\\": "src/"
+            "SoaringHost\\Admin\\": "src/"
         },
         "files": [
             "src/helpers.php"
@@ -48,10 +48,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Hummingbird\\Admin\\AdminServiceProvider"
+                "SoaringHost\\Admin\\AdminServiceProvider"
             ],
             "aliases": {
-                "Admin": "Hummingbird\\Admin\\Facades\\Admin"
+                "Admin": "SoaringHost\\Admin\\Facades\\Admin"
             }
 
         }

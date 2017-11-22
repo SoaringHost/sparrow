@@ -1,9 +1,9 @@
 <?php
 
-namespace StartupWrench\Admin\Middleware;
+namespace SoaringHost\Admin\Middleware;
 
-use StartupWrench\Admin\Auth\Database\OperationLog as OperationLogModel;
-use StartupWrench\Admin\Facades\Admin;
+use SoaringHost\Admin\Auth\Database\OperationLog as OperationLogModel;
+use SoaringHost\Admin\Facades\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 

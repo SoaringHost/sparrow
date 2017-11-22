@@ -1,9 +1,9 @@
 <?php
 
-namespace StartupWrench\Admin\Middleware;
+namespace SoaringHost\Admin\Middleware;
 
 use Closure;
-use StartupWrench\Admin\Admin;
+use SoaringHost\Admin\Admin;
 use Illuminate\Support\Facades\Auth;
 
 class Authenticate

@@ -1,7 +1,7 @@
 <?php
 
-use StartupWrench\Admin\Auth\Database\Administrator;
-use StartupWrench\Admin\Auth\Database\Menu;
+use SoaringHost\Admin\Auth\Database\Administrator;
+use SoaringHost\Admin\Auth\Database\Menu;
 
 class MenuTest extends TestCase
 {

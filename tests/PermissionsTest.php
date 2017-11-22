@@ -1,8 +1,8 @@
 <?php
 
-use StartupWrench\Admin\Auth\Database\Administrator;
-use StartupWrench\Admin\Auth\Database\Permission;
-use StartupWrench\Admin\Auth\Database\Role;
+use SoaringHost\Admin\Auth\Database\Administrator;
+use SoaringHost\Admin\Auth\Database\Permission;
+use SoaringHost\Admin\Auth\Database\Role;
 
 class PermissionsTest extends TestCase
 {

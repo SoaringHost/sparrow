@@ -1,6 +1,6 @@
 <?php
 
-namespace StartupWrench\Admin\Grid\Filter;
+namespace SoaringHost\Admin\Grid\Filter;
 
 class Equal extends AbstractFilter
 {

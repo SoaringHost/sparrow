@@ -1,6 +1,6 @@
 <?php
 
-namespace StartupWrench\Admin\Facades;
+namespace SoaringHost\Admin\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
@@ -8,6 +8,6 @@ class Admin extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return \StartupWrench\Admin\Admin::class;
+        return \SoaringHost\Admin\Admin::class;
     }
 }

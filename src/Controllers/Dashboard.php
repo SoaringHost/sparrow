@@ -1,8 +1,8 @@
 <?php
 
-namespace StartupWrench\Admin\Controllers;
+namespace SoaringHost\Admin\Controllers;
 
-use StartupWrench\Admin\Admin;
+use SoaringHost\Admin\Admin;
 
 class Dashboard
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace StartupWrench\Admin\Console;
+namespace SoaringHost\Admin\Console;
 
-use StartupWrench\Admin\Admin;
+use SoaringHost\Admin\Admin;
 use Illuminate\Console\Command;
 
 class ImportCommand extends Command
